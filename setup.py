@@ -20,7 +20,7 @@ setup(
     keywords = "math statistics",
     url = "http://github.com/decathorpe/pypy",
     packages=['enerpy'],
-    long_description=read('README'),
+    long_description=read('README.md'),
     classifiers=[
         "Development Status :: 1 - Planning",
         "Topic :: Utilities",
