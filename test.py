@@ -3,6 +3,8 @@
 import math
 
 from enerpy.base import *
+from enerpy.coerce import *
+
 from enerpy.math_base import *
 from enerpy.math_trig import *
 from enerpy.functions import *
@@ -21,7 +23,7 @@ D = Mul(a, b).eval()
 E = Add(a).eval()
 
 F = Log(Num(math.e, 0), Num(2, 0)).eval()
-G = Pow(Num(10, 0), Num(10, 0)).eval()
+G = Pow(Num(math.e, 0), Num(2, 0.25)).eval()
 
 H = Sin(Num(0, 0.2)).eval()
 I = Cos(Num(0, 0.2)).eval()
@@ -63,7 +65,6 @@ P.print()
 Q.print()
 R.print()
 S.print()
-
 
 
 # Node Tree

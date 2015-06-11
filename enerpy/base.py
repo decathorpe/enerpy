@@ -31,3 +31,4 @@ class Var(Node):
 class Fnc(Node):
 	def __init__(self):
 		super().__init__()
+
