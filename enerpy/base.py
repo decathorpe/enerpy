@@ -18,6 +18,9 @@ class Num(Node):
 	def sdv(self):
 		sdv = math.sqrt(self.var)
 		return sdv
+	
+	def print(self):
+		print(str(round(self.val, 14)) + " +- " + str(round(self.sdv(), 14)))
 
 
 class Var(Node):

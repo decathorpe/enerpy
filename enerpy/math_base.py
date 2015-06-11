@@ -35,7 +35,7 @@ def div(a, b):
 def pow(a, b):
 	c = Num()
 	c.val = math.pow(a.val, b.val)
-	c.var = math.pow(c.val, 2) * (math.pow((b.val/a.val), 2) * a.var + math.pow(math.log(a), 2) * b.var)
+	c.var = math.pow(c.val, 2) * (math.pow((b.val/a.val), 2) * a.var + math.pow(math.log(a.val), 2) * b.var)
 	return c
 
 def log(a, b):
