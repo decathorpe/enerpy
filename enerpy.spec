@@ -27,7 +27,7 @@ enerpy is a python package for gaussian error propagation
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__python3} ./setup.py install --root=$RPM_BUILD_ROOT --install-lib=%{python3_sitelib}
+%{__python3} ./setup.py install --root=$RPM_BUILD_ROOT # --install-lib=%{python3_sitelib}
 
 
 %clean
@@ -42,8 +42,11 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %files
-
-
+%{python3_sitelib}/enerpy
+%{python3_sitelib}/enerpy-0.0.1-py3.4.egg-info
 
 %changelog
+* Thu Jun 11 2015 Fabio Valentini <decathorpe@gmail.com> - 0.0.1-1
+- Initial package.
+
 
