@@ -5,7 +5,7 @@ Release: 0%{?dist}
 License: GPLv2
 URL: http://github.com/defathorpe/enerpy
 
-Source0: enerpy-0.0.1.tar.gz
+Source0: enerpy-%{version}.tar.gz
 
 BuildArchitectures: noarch
 
