@@ -2,8 +2,8 @@
 
 import math
 
-import enerpy.base
-import enerpy.functions
+from enerpy.base import *
+from enerpy.functions import *
 
 
 __all__ = ["base", "coerce", "functions", "math_base", "math_trig"]
