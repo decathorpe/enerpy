@@ -1,8 +1,6 @@
 from enerpy.base import *
 from enerpy.coerce import *
-
-from enerpy.math_base import *
-from enerpy.math_trig import *
+from enerpy.calc import *
 
 
 # Add, Sub classes

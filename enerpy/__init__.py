@@ -6,4 +6,4 @@ from enerpy.base import *
 from enerpy.functions import *
 
 
-__all__ = ["base", "coerce", "functions", "math_base", "math_trig"]
+__all__ = ["base", "coerce", "functions", "calc"]
