@@ -19,7 +19,7 @@ enerpy is a python package for gaussian error propagation
 
 
 %prep
-%setup -q -n enerpy-0.0.1
+%setup -q -n enerpy-%{version}
 
 
 %build
