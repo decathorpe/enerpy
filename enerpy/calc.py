@@ -47,7 +47,7 @@ def exp(a):
 def log(a, b):
 	c = Num()
 	c.val = math.log(a.val, b.val)
-	c.var = math.pow(c.val, 2) * (a.var / (math.pow(a.val, 2) * math.pow(math.log(a.val), 2)) + b.var * (math.pow(b.val, 2) * math.pow(math.log(b.val), 2)))
+	c.var = math.pow(c.val, 2) * ( (a.var) / (math.pow(a.val, 2) * math.pow(math.log(a.val), 2)) + (b.var) / (math.pow(b.val, 2) * math.pow(math.log(b.val), 2)) )
 	return c
 
 
