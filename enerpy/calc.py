@@ -34,8 +34,14 @@ def div(a, b):
 # Powers, logarithms
 def pow(a, b):
 	c = Num()
-	c.val = math.pow(b.val, a.val)
-	c.var = math.pow(c.val, 2) * (math.pow((b.val/a.val), 2) * a.var + math.pow(math.log(a.val), 2) * b.var)
+	c.val = math.pow(a.val, b.val)
+	c.var = math.pow(c.val, 2) * ( math.pow(b.val/a.val, 2) * a.var + math.pow(math.log(a.val), 2) * b.var )
+	return c
+
+def exp(a):
+	c = Num()
+	c.val = math.exp(a.val)
+	c.var = math.pow(c.val, 2) * a.var
 	return c
 
 def log(a, b):

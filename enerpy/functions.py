@@ -62,8 +62,10 @@ class Div(Fnc):
 
 
 # Pow, Log classes
+
+# generic power: a raised to power b
 class Pow(Fnc):
-	def __init__(self, a, b=Num(math.e, 0)):
+	def __init__(self, a, b):
 		super().__init__()
 		a = coerce(a)
 		b = coerce(b)
@@ -75,9 +77,21 @@ class Pow(Fnc):
 		c = pow(self.arg1.eval(), self.arg2.eval())
 		return c
 
+# special case: exponent a, base e
+class Exp(Fnc):
+	def __init__(self, a):
+		super().__init__()
+		a = coerce(a)
 
+		self.arg1 = a
+
+	def eval(self):
+		c = exp(self.arg1.eval())
+		return c
+
+# generic logarithm: argument a, base b
 class Log(Fnc):
-	def __init__(self, a, b=Num(math.e, 0)):
+	def __init__(self, a, b):
 		super().__init__()
 		a = coerce(a)
 		b = coerce(b)

@@ -19,6 +19,7 @@ E = Add(a).eval()
 
 F = Log(Num(math.e, 0), Num(2, 0)).eval()
 G = Pow(Num(math.e, 0), Num(2, 0.25)).eval()
+X = Exp(Num(2, 0.25)).eval()
 
 H = Sin(Num(0, 0.2)).eval()
 I = Cos(Num(0, 0.2)).eval()
@@ -44,6 +45,7 @@ E.print()
 
 F.print()
 G.print()
+X.print()
 
 H.print()
 I.print()
