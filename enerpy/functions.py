@@ -77,6 +77,22 @@ class Pow(Fnc):
 		c = pow(self.arg1.eval(), self.arg2.eval())
 		return c
 
+
+# special case: (square) roots
+class Roo(Fnc):
+	def __init__(self, a, b=2):
+		super().__init__()
+		a = coerce(a)
+		b = coerce(b)
+		
+		self.arg1 = a
+		self.arg2 = Div(1, b)
+
+	def eval(self):
+		c = pow(self.arg1.eval(), self.arg2.eval())
+		return c
+
+
 # special case: exponent a, base e
 class Exp(Fnc):
 	def __init__(self, a):

@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import math
-
 from enerpy.functions import *
 
 
@@ -37,6 +35,8 @@ Q = ArcSinh(Num(0, 0.2)).eval()
 R = ArcCosh(Num(2, 0.2)).eval()
 S = ArcTanh(Num(0, 0.2)).eval()
 
+T = Roo(Num(2, 1)).eval()
+
 c.print()
 d.print()
 C.print()
@@ -63,6 +63,7 @@ Q.print()
 R.print()
 S.print()
 
+T.print()
 
 # Node Tree
 node1 = Num(2, 0.1)
