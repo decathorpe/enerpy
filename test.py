@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from enerpy.functions import *
+from enerpy.lists import *
 
 
 # Some small tests
@@ -65,6 +66,8 @@ S.print()
 
 T.print()
 
+
+
 # Node Tree
 node1 = Num(2, 0.1)
 node2 = Num(3, 0.2)
@@ -78,3 +81,19 @@ node7 = Div(node4, node6)
 result = node7.eval()
 
 result.print()
+
+
+
+# NumLists
+nlist = NumList()
+nlist.append(9)
+nlist.append(10)
+nlist.append(11)
+nlist.append(10)
+nlist.append(11)
+nlist.append(12)
+nlist.append(9)
+nlist.append(10)
+
+mean = nlist.condense()
+mean.print()
