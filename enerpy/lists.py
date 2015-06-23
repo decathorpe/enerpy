@@ -2,7 +2,7 @@ import math
 
 from enerpy.base import *
 from enerpy.calc import *
-from enerpy.functions import *
+from enerpy.funcs import *
 
 class NumList(Node, list):
 	def __init__(self):

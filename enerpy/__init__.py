@@ -3,8 +3,10 @@
 import math
 
 from enerpy.base import *
-from enerpy.functions import *
+from enerpy.funcs import *
+
 from enerpy.lists import *
+from enerpy.funcs_list import *
 
 
-__all__ = ["base", "coerce", "functions", "calc", "lists"]
+__all__ = ["base", "funcs", "calc", "lists", "funcs_list"]

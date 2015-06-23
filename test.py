@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from enerpy.functions import *
-from enerpy.lists import *
+from enerpy.funcs import *
+from enerpy.funcs_list import *
 
 
 # Some small tests
@@ -86,14 +86,9 @@ result.print()
 
 # NumLists
 nlist = NumList()
-nlist.append(9)
-nlist.append(10)
-nlist.append(11)
-nlist.append(Num(10, 1))
-nlist.append(11)
-nlist.append(Num(12, 2))
-nlist.append(9)
-nlist.append(10)
 
-mean = nlist.condense()
-mean.print()
+numbers = [9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10]
+for i in numbers:
+	nlist.append(i)
+
+nlist.condense().print()

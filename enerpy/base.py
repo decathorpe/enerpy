@@ -1,5 +1,6 @@
 import math
 
+
 class Node:
 	def __init__(self):
 		self.name = ""
@@ -31,3 +32,18 @@ class Fnc(Node):
 	def __init__(self):
 		super().__init__()
 
+
+def coerce(a):
+	if isinstance(a, Node):
+		return a
+	
+	if isinstance(a, int):
+		return Num(a, 0.0)
+	
+	if isinstance(a, float):
+		return Num(a, 0.0)
+	
+	if isinstance(a, list):
+		return a
+	
+	raise(TypeError("Argument is not of any supported type."))
