@@ -1,6 +1,6 @@
 Summary: python package for gaussian error propagation
 Name: enerpy
-Version: 0.0.4
+Version: 0.0.5
 Release: 1%{?dist}
 License: GPLv2
 URL: http://github.com/defathorpe/enerpy
@@ -46,6 +46,9 @@ rm -rf $RPM_BUILD_ROOT
 %{python3_sitelib}/enerpy-%{version}-py3.4.egg-info
 
 %changelog
+* Tue Jun 23 2015 Fabio Valentini <decathorpe@gmail.com> - 0.0.5-1
+- Bump to version 0.0.5.
+
 * Wed Jun 17 2015 Fabio Valentini <decathorpe@gmail.com> - 0.0.4-1
 - Bump version to 0.0.4.
 
