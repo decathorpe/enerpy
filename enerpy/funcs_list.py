@@ -8,8 +8,8 @@ class ListFnc(Fnc):
 	def __init__(self, fnc, a, b):
 		super().__init__()
 		
-		a = coerce(a)
-		b = coerce(b)
+		a = enerfy(a)
+		b = enerfy(b)
 		
 		self.fnc = fnc
 		self.arg1 = a
@@ -28,12 +28,12 @@ class ListFnc(Fnc):
 		if isinstance(self.arg1, list):
 			c = NumList()
 			for i in range(0, len(self.arg1)):
-				c.append(self.fnc(coerce(self.arg1[i]), self.arg2).eval())
+				c.append(self.fnc(enerfy(self.arg1[i]), self.arg2).eval())
 			return c
 		
 		if isinstance(self.arg2, list):
 			c = NumList()
 			for i in range(0, len(self.arg2)):
-				c.append(self.fnc(coerce(self.arg2[i]), self.arg1).eval())
+				c.append(self.fnc(enerfy(self.arg2[i]), self.arg1).eval())
 			return c
 

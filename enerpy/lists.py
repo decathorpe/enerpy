@@ -17,18 +17,18 @@ class NumList(Node, list):
 		
 		list_sumn = 0
 		for i in self:
-			list_sumn = list_sumn + coerce(i).val
+			list_sumn = list_sumn + enerfy(i).val
 		
 		list_mean = list_sumn / n
 		c.val = list_mean
 		
 		list_var = 0
 		for i in self:
-			list_var = list_var + math.pow(list_mean - coerce(i).val, 2)
+			list_var = list_var + math.pow(list_mean - enerfy(i).val, 2)
 		
 		valu_var = 0
 		for i in self:
-			valu_var = valu_var + coerce(i).var
+			valu_var = valu_var + enerfy(i).var
 		
 		mean_vars = (1 / (n * (n - 1))) * list_var
 		valu_vars = (1 / math.pow(n, 2)) * valu_var
@@ -40,4 +40,4 @@ class NumList(Node, list):
 	def print(self):
 		for i in range(0, len(self)):
 			print(str(i), ": ", end="")
-			coerce(self[i]).print()
+			enerfy(self[i]).print()

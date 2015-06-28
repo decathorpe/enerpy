@@ -1,4 +1,3 @@
-from enerpy.base import *
 from enerpy.calc import *
 
 
@@ -6,8 +5,8 @@ from enerpy.calc import *
 class Add(Fnc):
 	def __init__(self, a, b=Num(0, 0)):
 		super().__init__()
-		a = coerce(a)
-		b = coerce(b)
+		a = enerfy(a)
+		b = enerfy(b)
 		
 		self.arg1 = a
 		self.arg2 = b
@@ -20,8 +19,8 @@ class Add(Fnc):
 class Sub(Fnc):
 	def __init__(self, a, b):
 		super().__init__()
-		a = coerce(a)
-		b = coerce(b)
+		a = enerfy(a)
+		b = enerfy(b)
 		
 		self.arg1 = a
 		self.arg2 = b
@@ -35,8 +34,8 @@ class Sub(Fnc):
 class Mul(Fnc):
 	def __init__(self, a, b=Num(1, 0)):
 		super().__init__()
-		a = coerce(a)
-		b = coerce(b)
+		a = enerfy(a)
+		b = enerfy(b)
 		
 		self.arg1 = a
 		self.arg2 = b
@@ -49,8 +48,8 @@ class Mul(Fnc):
 class Div(Fnc):
 	def __init__(self, a, b):
 		super().__init__()
-		a = coerce(a)
-		b = coerce(b)
+		a = enerfy(a)
+		b = enerfy(b)
 		
 		self.arg1 = a
 		self.arg2 = b
@@ -66,8 +65,8 @@ class Div(Fnc):
 class Pow(Fnc):
 	def __init__(self, a, b):
 		super().__init__()
-		a = coerce(a)
-		b = coerce(b)
+		a = enerfy(a)
+		b = enerfy(b)
 		
 		self.arg1 = a
 		self.arg2 = b
@@ -81,8 +80,8 @@ class Pow(Fnc):
 class Roo(Fnc):
 	def __init__(self, a, b=2):
 		super().__init__()
-		a = coerce(a)
-		b = coerce(b)
+		a = enerfy(a)
+		b = enerfy(b)
 		
 		self.arg1 = a
 		self.arg2 = Div(1, b)
@@ -96,7 +95,7 @@ class Roo(Fnc):
 class Exp(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 
 		self.arg1 = a
 
@@ -108,8 +107,8 @@ class Exp(Fnc):
 class Log(Fnc):
 	def __init__(self, a, b):
 		super().__init__()
-		a = coerce(a)
-		b = coerce(b)
+		a = enerfy(a)
+		b = enerfy(b)
 		
 		self.arg1 = a
 		self.arg2 = b
@@ -123,7 +122,7 @@ class Log(Fnc):
 class Sin(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	
@@ -135,7 +134,7 @@ class Sin(Fnc):
 class Cos(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	
@@ -147,7 +146,7 @@ class Cos(Fnc):
 class Tan(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	
@@ -160,7 +159,7 @@ class Tan(Fnc):
 class ArcSin(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	
@@ -172,7 +171,7 @@ class ArcSin(Fnc):
 class ArcCos(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	
@@ -184,7 +183,7 @@ class ArcCos(Fnc):
 class ArcTan(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	
@@ -197,7 +196,7 @@ class ArcTan(Fnc):
 class Sinh(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	
@@ -209,7 +208,7 @@ class Sinh(Fnc):
 class Cosh(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	
@@ -221,7 +220,7 @@ class Cosh(Fnc):
 class Tanh(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	
@@ -234,7 +233,7 @@ class Tanh(Fnc):
 class ArcSinh(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	
@@ -246,7 +245,7 @@ class ArcSinh(Fnc):
 class ArcCosh(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	
@@ -258,7 +257,7 @@ class ArcCosh(Fnc):
 class ArcTanh(Fnc):
 	def __init__(self, a):
 		super().__init__()
-		a = coerce(a)
+		a = enerfy(a)
 		
 		self.arg1 = a
 	

@@ -33,7 +33,7 @@ class Fnc(Node):
 		super().__init__()
 
 
-def coerce(a):
+def enerfy(a):
 	if isinstance(a, Node):
 		return a
 	
