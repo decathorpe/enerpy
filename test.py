@@ -96,5 +96,5 @@ sumlist.print()
 sumlist.condense().print()
 
 Add(nlist1.condense(),nlist2.condense()).eval().print()
-# I don't think the sdev should be the same on these two prints as the premise for the calculation is different (mean of mean vs. mean).
+# I don't think the sdev should be the same on these two prints as the premise for the calculation is different (mean of two means vs. one mean).
 
