@@ -4,9 +4,12 @@ from enerpy.base import *
 from enerpy.calc import *
 from enerpy.funcs import *
 
+
 class NumList(Node, list):
-	def __init__(self):
+	def __init__(self, nlist=[]):
 		super().__init__()
+		for i in nlist:
+			self.append(i)
 
 	def condense(self):
 		c = Num()
@@ -33,3 +36,8 @@ class NumList(Node, list):
 		c.var = mean_vars + valu_vars
 		
 		return c
+	
+	def print(self):
+		for i in range(0, len(self)):
+			print(str(i), ": ", end="")
+			coerce(self[i]).print()

@@ -85,10 +85,16 @@ result.print()
 
 
 # NumLists
-nlist = NumList()
-
-numbers = [9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10]
-for i in numbers:
-	nlist.append(i)
-
+nlist = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
 nlist.condense().print()
+
+nlist1 = NumList([9, 11, 10, Num(10, 1), 11, Num(12, 2), 9, 10])
+nlist2 = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
+
+sumlist = ListFnc(Add, nlist1, nlist2).eval()
+sumlist.print()
+sumlist.condense().print()
+
+Add(nlist1.condense(),nlist2.condense()).eval().print()
+# I don't think the sdev should be the same on these two prints as the premise for the calculation is different (mean of mean vs. mean).
+

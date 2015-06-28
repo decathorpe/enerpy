@@ -47,3 +47,4 @@ def coerce(a):
 		return a
 	
 	raise(TypeError("Argument is not of any supported type."))
+
