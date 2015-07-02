@@ -37,32 +37,32 @@ S = ArcTanh(Num(0, 0.2)).eval()
 T = Roo(Num(2, 1)).eval()
 
 
-c.print()
-d.print()
-C.print()
-D.print()
+c.prnt()
+d.prnt()
+C.prnt()
+D.prnt()
 
-F.print()
-G.print()
-X.print()
+F.prnt()
+G.prnt()
+X.prnt()
 
-H.print()
-I.print()
-J.print()
+H.prnt()
+I.prnt()
+J.prnt()
 
-K.print()
-L.print()
-M.print()
+K.prnt()
+L.prnt()
+M.prnt()
 
-N.print()
-O.print()
-P.print()
+N.prnt()
+O.prnt()
+P.prnt()
 
-Q.print()
-R.print()
-S.print()
+Q.prnt()
+R.prnt()
+S.prnt()
 
-T.print()
+T.prnt()
 
 
 # Node Tree
@@ -77,29 +77,29 @@ node7 = Div(node4, node6)
 
 result = node7.eval()
 
-result.print()
+result.prnt()
 
 
 # NumLists
 nlist = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
-# nlist.condense().print()
+# nlist.condense().prnt()
 
 nlist1 = NumList([9, 11, 10, Num(10, 1), 11, Num(12, 2), 9, 10])
 nlist2 = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
 
 sumlist = ListFnc(Add, nlist1, nlist2).eval()
-sumlist.print()
-sumlist.condense().print()
-Add(nlist1.condense(),nlist2.condense()).eval().print()
+sumlist.prnt()
+sumlist.condense().prnt()
+Add(nlist1.condense(),nlist2.condense()).eval().prnt()
 
 coslist = ListFnc(Cos, nlist1).eval()
-coslist.print()
-coslist.condense().print()
+coslist.prnt()
+coslist.condense().prnt()
 
-ListFnc(Add, nlist1, 1).eval().condense().print()
+ListFnc(Add, nlist1, 1).eval().condense().prnt()
 
-ListFnc(Log, nlist1).eval().condense().print()
-ListFnc(Log, nlist1, nlist2).eval().condense().print()
+ListFnc(Log, nlist1).eval().condense().prnt()
+ListFnc(Log, nlist1, nlist2).eval().condense().prnt()
 
 # Test automatic condensing
-Add(nlist1, nlist2).eval().print()
+Add(nlist1, nlist2).eval().prnt()

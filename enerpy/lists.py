@@ -37,7 +37,7 @@ class NumList(Node, list):
 		
 		return c
 	
-	def print(self):
+	def prnt(self):
 		for i in range(0, len(self)):
 			print(str(i), ": ", end="")
-			enerfy(self[i]).print()
+			enerfy(self[i]).prnt()
