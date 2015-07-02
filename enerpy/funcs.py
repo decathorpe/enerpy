@@ -3,7 +3,7 @@ from enerpy.calc import *
 
 # Add, Sub classes
 class Add(Fnc):
-	def __init__(self, a, b=Num(0, 0)):
+	def __init__(self, a, b):
 		super().__init__()
 		a = enerfy(a)
 		b = enerfy(b)
@@ -32,7 +32,7 @@ class Sub(Fnc):
 
 # Mul, Div classes
 class Mul(Fnc):
-	def __init__(self, a, b=Num(1, 0)):
+	def __init__(self, a, b):
 		super().__init__()
 		a = enerfy(a)
 		b = enerfy(b)
@@ -103,9 +103,9 @@ class Exp(Fnc):
 		c = exp(self.arg1.eval())
 		return c
 
-# generic logarithm: argument a, base b
+# generic logarithm: argument a, base b (default: math.e)
 class Log(Fnc):
-	def __init__(self, a, b):
+	def __init__(self, a, b=math.e):
 		super().__init__()
 		a = enerfy(a)
 		b = enerfy(b)
@@ -264,3 +264,7 @@ class ArcTanh(Fnc):
 	def eval(self):
 		c = arctanh(self.arg1.eval())
 		return c
+
+funcs_two_arg = [Add, Sub, Mul, Div, Pow]
+funcs_one_arg = [Exp, Sin, Cos, Tan, ArcSin, ArcCos, ArcTan, Sinh, Cosh, Tanh, ArcSinh, ArcCosh, ArcTanh]
+funcs_var_arg = [Roo, Log]

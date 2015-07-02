@@ -31,9 +31,13 @@ class Var(Node):
 class Fnc(Node):
 	def __init__(self):
 		super().__init__()
+		self.name = ""
 
 
 def enerfy(a):
+	if isinstance(a, list):
+		return a.condense()
+
 	if isinstance(a, Node):
 		return a
 	
@@ -42,9 +46,6 @@ def enerfy(a):
 	
 	if isinstance(a, float):
 		return Num(a, 0.0)
-	
-	if isinstance(a, list):
-		return a
 	
 	raise(TypeError("Argument is not of any supported type."))
 

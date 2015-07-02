@@ -14,8 +14,6 @@ d = mul(a, b)
 C = Add(a, b).eval()
 D = Mul(a, b).eval()
 
-E = Add(a).eval()
-
 F = Log(Num(math.e, 0), Num(2, 0)).eval()
 G = Pow(Num(math.e, 0), Num(2, 0.25)).eval()
 X = Exp(Num(2, 0.25)).eval()
@@ -38,11 +36,11 @@ S = ArcTanh(Num(0, 0.2)).eval()
 
 T = Roo(Num(2, 1)).eval()
 
+
 c.print()
 d.print()
 C.print()
 D.print()
-E.print()
 
 F.print()
 G.print()
@@ -67,7 +65,6 @@ S.print()
 T.print()
 
 
-
 # Node Tree
 node1 = Num(2, 0.1)
 node2 = Num(3, 0.2)
@@ -83,10 +80,9 @@ result = node7.eval()
 result.print()
 
 
-
 # NumLists
 nlist = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
-nlist.condense().print()
+# nlist.condense().print()
 
 nlist1 = NumList([9, 11, 10, Num(10, 1), 11, Num(12, 2), 9, 10])
 nlist2 = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
@@ -94,7 +90,16 @@ nlist2 = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
 sumlist = ListFnc(Add, nlist1, nlist2).eval()
 sumlist.print()
 sumlist.condense().print()
-
 Add(nlist1.condense(),nlist2.condense()).eval().print()
-# I don't think the sdev should be the same on these two prints as the premise for the calculation is different (mean of two means vs. one mean).
 
+coslist = ListFnc(Cos, nlist1).eval()
+coslist.print()
+coslist.condense().print()
+
+ListFnc(Add, nlist1, 1).eval().condense().print()
+
+ListFnc(Log, nlist1).eval().condense().print()
+ListFnc(Log, nlist1, nlist2).eval().condense().print()
+
+# Test automatic condensing
+Add(nlist1, nlist2).eval().print()
