@@ -85,3 +85,41 @@ Exp(Div(deltaH, Mul(Rgas, Temp))).eval().prnt()
 ### `ListFnc`
 
 Functions can also be applied to a `NumList`. `ListFnc` takes a `Fnc` object as argument and, depending on the function, one or two arguments - one of which must be a `NumList`.
+
+Initialising the `ListFnc` will create a list of `Fnc` objects with corresponding arguments.
+
+Evaluating the `ListFnc` with `.eval()` will return a `NumList`, which can then be condensed to a `Num` or used as argument for another `ListFnc`.
+
+If both arguments are lists, they have to be of equal length. If only one of the arguments is a list, the other is converted to a list of equal length, containing repeating instances of the non-list argument.
+
+If the `Fnc` is a one-argument-function, only one `NumList` is accepted as argument.
+
+```python
+nlist1 = NumList([9, 11, 10, Num(10, 1), 11, Num(12, 2), 9, 10])
+nlist2 = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
+
+addlist = ListFnc(Add, nlist1, nlist2)
+sumlist = addlist.eval()
+
+sumlist.prnt()
+# output:
+#0 : 18 +- 0.0
+#1 : 21 +- 0.0
+#2 : 21 +- 0.0
+#3 : 20 +- 1.4142135623731
+#4 : 22 +- 0.0
+#5 : 24 +- 2.82842712474619
+#6 : 18 +- 0.0
+#7 : 20 +- 0.0
+
+meanlist = sumlist.condense()
+meanlist.prnt()
+# output: 20.5 +- 0.81009258730098
+```
+
+If a `NumList` is used as an argument to a non-`ListFnc` function, it is automatically condensed to a `Num`.
+
+```python
+Add(nlist1, nlist2).eval().prnt()
+# output: 20.5 +- 0.65123509031466
+```
