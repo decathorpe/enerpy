@@ -81,3 +81,7 @@ Temp = Num(300, 1)
 Exp(Div(deltaH, Mul(Rgas, Temp))).eval().print()
 # output: 2.25125909455595 +- 0.00609375728259
 ```
+
+### `ListFnc`
+
+Functions can also be applied to `NumList`s. `ListFnc` takes a `Fnc` object as argument and, depending on the function, one or two arguments - one of which must be a `NumList`.
