@@ -40,25 +40,28 @@ A `NumList` is initialised with a list of numbers or a list of `Num` objects. A 
 
 ```python3
 nlist1 = NumList([1, 2, 10, Num(19, 2.2), 11.1, Num(10, 1.2)])
-nlist1.append(Num(22,2.1))
-nlist1_mean =nlist1.condense()
-nlist_mean.print()
+nlist1.append(Num(22, 2.1))
+nlist1_mean = nlist1.condense()
+nlist1_mean.print()
+# output: 10.72857142857143 +- 2.99466646070716
 ```
 
 ### `Fnc`
 
-Functions are only evaluated if you explicitly tell them to. `Add(num1, num2)` only creates an `Add` Function object with arguments `num1` and `num2`, and `num1` and `num2` are coerced before the object is created.
+Function objects are initialised with the function argument(s). Some sunctions require two arguments, some only accept one argument, and a few work with one argument but two arguments can be specified. More than two arguments are not supported.
 
-Evaluating a `Fnc` object is done with the `.eval()` method and returns a `Num` object.
+```python3
+addobj = Add(Num(2, 1), Num(3, 1))
+numobj = addobj.eval()
+numobj.print()
+# output: 5 +- 1.4142135623731
+```
 
-Printing a `Num` object is done with the `.print()` method and prints value and the calculated standard error.
+Functions are only evaluated if you explicitly tell them to. Evaluating a function is done with the `.eval()` method - this returns a `Num` object, which then can be printed.
 
+Nested functions are supported and are evaluated recursively, bottom up (inside out, depending on the perspective). The following example calculates a simple Boltzmann factor (`Rgas` is taken from wikipedia).
 
-## Example:
-
-This example calculates a simple Boltzmann factor (`Rgas` is taken from wikipedia).
-
-```python
+```python3
 deltaH = Num(2024.13, 0.25)
 Rgas = Num(8.3144621, 0.0000075)
 Temp = Num(300, 1)
