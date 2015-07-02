@@ -38,16 +38,18 @@ Evaluating a `Num` object is possible but returns only the object itself.
 
 A `NumList` is initialised with a list of numbers or a list of `Num` objects. A `NumList` object cannot be evaluated with `.eval()`, it can only be condensed into a `Num` object using the `.condense()` method, where the value of the returned `Num` is the mean of the list items and its standard error is the standard error of the mean.
 
-A `NumList` can also be printed by using the `.prnt()` method on the object. This prints the items of the `NumList`, together with indices.
-
 ```python
 nlist1 = NumList([1, 2, 10, Num(19, 2.2), 11.1, Num(10, 1.2)])
 nlist1.append(Num(22, 2.1))
 nlist1_mean = nlist1.condense()
 nlist1_mean.prnt()
 # output: 10.72857142857143 +- 2.99466646070716
-nlist1.prnt()
+```
 
+A `NumList` can also be printed by using the `.prnt()` method on the object. This prints the items of the `NumList`, together with indices.
+
+```python
+nlist1.prnt()
 # output:
 #0 : 1 +- 0.0
 #1 : 2 +- 0.0
