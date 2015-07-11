@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name = "enerpy",
-    version = "0.0.6",
+    version = "0.0.7",
     author = "Fabio Valentini",
     author_email = "decathorpe (at) gmail (dot) com",
     description = ("Gaussian error propagation and basic statistics library functions"),
