@@ -18,7 +18,7 @@ setup(
     description = ("Gaussian error propagation and basic statistics library functions"),
     license = "GPLv2",
     keywords = "math statistics",
-    url = "http://github.com/decathorpe/pypy",
+    url = "http://github.com/decathorpe/enerpy",
     packages=['enerpy'],
     long_description=read('README.md'),
     classifiers=[
