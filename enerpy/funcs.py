@@ -1,3 +1,4 @@
+from enerpy.base import *
 from enerpy.calc import *
 
 
@@ -12,7 +13,7 @@ class Add(Fnc):
 		self.arg2 = b
 	
 	def eval(self):
-		c = add(self.arg1.eval(), self.arg2.eval())
+		c = self.arg1.eval() + self.arg2.eval()
 		return c
 
 
@@ -26,7 +27,7 @@ class Sub(Fnc):
 		self.arg2 = b
 	
 	def eval(self):
-		c = sub(self.arg1.eval(), self.arg2.eval())
+		c = self.arg1.eval() - self.arg2.eval()
 		return c
 
 
@@ -41,7 +42,7 @@ class Mul(Fnc):
 		self.arg2 = b
 	
 	def eval(self):
-		c = mul(self.arg1.eval(), self.arg2.eval())
+		c = self.arg1.eval() * self.arg2.eval()
 		return c
 
 
@@ -55,7 +56,7 @@ class Div(Fnc):
 		self.arg2 = b
 	
 	def eval(self):
-		c = div(self.arg1.eval(), self.arg2.eval())
+		c = self.arg1.eval() / self.arg2.eval()
 		return c
 
 

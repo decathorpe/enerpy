@@ -4,14 +4,30 @@ from enerpy.funcs import *
 from enerpy.funcs_list import *
 
 
-# Some small tests
 a = Num(2.0, 0.5)
 b = Num(8.0, 0.4)
 
-c = add(a, b)
-d = mul(a, b)
 
-C = Add(a, b).eval()
+# Some small tests
+ADD_INFIX = a + b
+ADD_FUNCS = Add(a, b).eval()
+
+"""
+#TODO This doesn't work yet anymore. Needs more work.
+ADD_CONST = a + 1
+ADD_CONSX = Add(a, 1).eval()
+"""
+
+SUB_INFIX = a - b
+SUB_FUNCS = Sub(a, b).eval()
+
+MUL_INFIX = a * b
+MUL_FUNCS = Mul(a, b).eval()
+
+DIV_INFIX = a / b
+DIV_FUNCS = Div(a, b).eval()
+
+"""
 D = Mul(a, b).eval()
 
 F = Log(Num(math.e, 0), Num(2, 0)).eval()
@@ -35,12 +51,6 @@ R = ArcCosh(Num(2, 0.2)).eval()
 S = ArcTanh(Num(0, 0.2)).eval()
 
 T = Roo(Num(2, 1)).eval()
-
-
-c.prnt()
-d.prnt()
-C.prnt()
-D.prnt()
 
 F.prnt()
 G.prnt()
@@ -103,3 +113,17 @@ ListFnc(Log, nlist1, nlist2).eval().condense().prnt()
 
 # Test automatic condensing
 Add(nlist1, nlist2).eval().prnt()
+"""
+
+# Test infix operators
+ADD_INFIX.prnt()
+ADD_FUNCS.prnt()
+
+SUB_INFIX.prnt()
+SUB_FUNCS.prnt()
+
+MUL_INFIX.prnt()
+MUL_FUNCS.prnt()
+
+DIV_INFIX.prnt()
+DIV_FUNCS.prnt()
