@@ -18,22 +18,22 @@ class Num(Node):
     def sdv(self):
         sdv = math.sqrt(self.var)
         return sdv
-    
+
     def prnt(self):
         print(str(round(self.val, 14)) + " +- " + str(round(self.sdv(), 14)))
-    
+
     def __add__(self, other):
         c = Num()
         c.val = self.val + other.val
         c.var = self.var + other.var
         return c
-    
+
     def __sub__(self, other):
         c = Num()
         c.val = self.val - other.val
         c.var = self.var + other.var
         return c
-    
+
     def __mul__(self, other):
         c = Num()
         c.val = self.val * other.val
@@ -63,12 +63,12 @@ def enerfy(a):
 
     if isinstance(a, Node):
         return a
-    
+
     if isinstance(a, int):
         return Num(a, 0.0)
-    
+
     if isinstance(a, float):
         return Num(a, 0.0)
-    
+
     raise(TypeError("Argument is not of any supported type."))
 
