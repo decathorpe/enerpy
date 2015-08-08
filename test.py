@@ -9,6 +9,9 @@ def nprint(text):
 a = Num(2.0, 0.5)
 b = Num(8.0, 0.4)
 
+nlist1 = NumList([9, 11, 10, Num(10, 1), 11, Num(12, 2), 9, 10])
+nlist2 = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
+
 
 # Some small tests
 ADD_INFIX = a + b
@@ -127,11 +130,6 @@ result = node7.eval()
 
 
 # NumLists
-nlist = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
-
-nlist1 = NumList([9, 11, 10, Num(10, 1), 11, Num(12, 2), 9, 10])
-nlist2 = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
-
 sumlist = ListFnc(Add, nlist1, nlist2).eval()
 coslist = ListFnc(Cos, nlist1).eval()
 
@@ -272,7 +270,7 @@ print()
 print("Square root of 2 +- 1:                    ", ROOT)
 print()
 
-print("List condensing:                          ", nlist.condense())
+print("List condensing:                          ", nlist1.condense())
 print("List of Add +1 functions, condensed:      ", ListFnc(Add, nlist1, 1).eval().condense())
 print("List of Add functions, condensed:         ", sumlist.condense())
 print("Sum of condensed Lists:                   ", Add(nlist1.condense(),nlist2.condense()).eval())
