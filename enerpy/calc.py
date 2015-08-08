@@ -2,31 +2,6 @@ import math
 
 from enerpy.base import *
 
-"""
-# Add, subtract
-def add(a, b):
-    c = Num()
-    c.val = a.val + b.val
-    c.var = a.var + b.var
-    return c
-
-def sub(aval, avar, bval, bvar):
-    cval = aval - bval
-    cvar = avar + bvar
-    return cval, cvar
-"""
-"""
-# Multiply, divide
-def mul(aval, avar, bval, bvar):
-    cval = aval * bval
-    cvar = math.pow(cval, 2) * ((avar / (math.pow(aval, 2))) + (bvar / (math.pow(bval, 2))))
-    return cval, cvar
-
-def div(aval, avar, bval, bvar):
-    cval = aval / bval
-    cvar = math.pow(cval, 2) * ((avar / (math.pow(aval, 2))) + (bvar / (math.pow(bval, 2))))
-    return cval, cvar
-"""
 
 # Powers, logarithms
 def pow(a, b):
