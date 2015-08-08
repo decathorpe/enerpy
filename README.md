@@ -19,6 +19,10 @@ from enerpy.funcs_list import *
 
 Everything is an object (TM). The basic types are `Num`, `Fnc`, `NumList` and `ListFnc`.
 
+### New in Version 0.1.0
+
+Infix operators can now be used for most arithmetic operations supported by python3 itself (not bitwise operators). No more need for nesting `Fnc` objects!
+
 ### `Num`
 
 Arguments to functions are automatically coerced into the internal `Num` object, per default with Standard Error of 0. Initialising a `Num` object manually is done like this:
@@ -31,8 +35,8 @@ num1.var = 1      # manually setting num1's variance
 num2 = Num(0, 0)  # number object, initialised with value and standard error of 0
 ```
 
-`Num` objects can be printed simply by invoking the `.prnt()` method on them.
-Evaluating a `Num` object is possible but returns only the object itself.
+As of version 0.1.0, a `Num` object can be printed like any other object - or by invoking the `.prnt()` method on it.
+Evaluating a `Num` object is possible (for compatibility with other classes) but returns only the object itself.
 
 ### `NumList`
 
@@ -42,7 +46,7 @@ A `NumList` is initialised with a list of numbers or a list of `Num` objects. A 
 nlist1 = NumList([1, 2, 10, Num(19, 2.2), 11.1, Num(10, 1.2)])
 nlist1.append(Num(22, 2.1))
 nlist1_mean = nlist1.condense()
-nlist1_mean.prnt()
+print(nlist1_mean)
 # output: 10.72857142857143 +- 2.99466646070716
 ```
 
@@ -67,7 +71,7 @@ Function objects are initialised with the function argument(s). Some sunctions r
 ```python
 addobj = Add(Num(2, 1), Num(3, 1))
 numobj = addobj.eval()
-numobj.prnt()
+print(numobj)
 # output: 5 +- 1.4142135623731
 ```
 
