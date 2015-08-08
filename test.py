@@ -27,6 +27,9 @@ MUL_FUNCS = Mul(a, b).eval()
 DIV_INFIX = a / b
 DIV_FUNCS = Div(a, b).eval()
 
+POW_INFIX = a ** b
+POW_FUNCS = Pow(a, b).eval()
+
 """
 D = Mul(a, b).eval()
 
@@ -127,3 +130,7 @@ MUL_FUNCS.prnt()
 
 DIV_INFIX.prnt()
 DIV_FUNCS.prnt()
+
+POW_INFIX.prnt()
+POW_FUNCS.prnt()
+

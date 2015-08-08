@@ -22,6 +22,7 @@ class Num(Node):
     def prnt(self):
         print(str(round(self.val, 14)) + " +- " + str(round(self.sdv(), 14)))
 
+    # Binary operators
     def __add__(self, other):
         c = Num()
         c.val = self.val + other.val
@@ -45,6 +46,15 @@ class Num(Node):
         c.val = self.val / other.val
         c.var = math.pow(c.val, 2) * ((self.var / (math.pow(self.val, 2))) + (other.var / (math.pow(other.val, 2))))
         return c
+
+    def __pow__(self, other):
+        c = Num()
+        c.val = self.val ** other.val
+        c.var = math.pow(c.val, 2) * (math.pow(other.val/self.val, 2) * self.var + math.pow(math.log(self.val), 2) * other.var)
+        return c
+
+
+    # Unary operators
 
 """
 class Var(Node):

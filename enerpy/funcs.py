@@ -73,7 +73,7 @@ class Pow(Fnc):
 		self.arg2 = b
 	
 	def eval(self):
-		c = pow(self.arg1.eval(), self.arg2.eval())
+		c = self.arg1.eval() ** self.arg2.eval()
 		return c
 
 
