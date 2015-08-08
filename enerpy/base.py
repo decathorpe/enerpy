@@ -134,13 +134,13 @@ class Num(Node):
     # Unary operators
     def __neg__(self):
         c = Num()
-        c.val = -self.val
+        c.val = -math.fabs(self.val)
         c.var = self.var
         return c
 
     def __pos__(self):
         c = Num()
-        c.val = +self.val
+        c.val = +math.fabs(self.val)
         c.var = self.var
         return c
 
@@ -167,7 +167,7 @@ class Num(Node):
 
     def __eq__(self, other):
         other = enerfy(other)
-        if (self.val == other.val and self.var == other.var):
+        if (round(self.val, 14) == round(other.val, 14) and round(self.var, 14) == round(other.var, 14)):
             return True
         else:
             return False

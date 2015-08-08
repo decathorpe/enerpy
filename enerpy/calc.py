@@ -84,7 +84,7 @@ def tanh(a):
     assert isinstance(a, Num)
     c = Num()
     c.val = math.tanh(a.val)
-    c.var = math.pow(math.cosh(a.val), -4)
+    c.var = math.pow((2 * math.cosh(a.val)) / (math.cosh(2 * a.val) + 1), 2) * a.var
     return c
 
 
