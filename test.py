@@ -3,6 +3,8 @@
 from enerpy.funcs import *
 from enerpy.funcs_list import *
 
+def nprint(text):
+    print(text, end="")
 
 a = Num(2.0, 0.5)
 b = Num(8.0, 0.4)
@@ -11,126 +13,123 @@ b = Num(8.0, 0.4)
 # Some small tests
 ADD_INFIX = a + b
 ADD_FUNCS = Add(a, b).eval()
+IADD_TEST = a
+IADD_TEST += b
 
-"""
-#TODO This doesn't work yet anymore. Needs more work.
 ADD_CONST = a + 1
 ADD_CONSX = Add(a, 1).eval()
-"""
+ADD_CONSR = 2 + a
+ADD_CONSY = Add(2, a).eval()
 
 SUB_INFIX = a - b
 SUB_FUNCS = Sub(a, b).eval()
+ISUB_TEST = a
+ISUB_TEST -= b
+
+SUB_CONST = b - 1
+SUB_CONSX = Sub(b, 1).eval()
+SUB_CONSR = 1 - b
+SUB_CONSY = Sub(1, b).eval()
 
 MUL_INFIX = a * b
 MUL_FUNCS = Mul(a, b).eval()
+IMUL_TEST = a
+IMUL_TEST *= b
+
+MUL_CONST = a * 2
+MUL_CONSX = Mul(a, 2).eval()
+MUL_CONSR = 3 * a
+MUL_CONSY = Mul(3, a).eval()
 
 DIV_INFIX = a / b
 DIV_FUNCS = Div(a, b).eval()
+IDIV_TEST = a
+IDIV_TEST /= b
+
+DIV_CONST = a / 2
+DIV_CONSX = Div(a, 2).eval()
+DIV_CONSR = 3 / a
+DIV_CONSY = Div(3, a).eval()
 
 POW_INFIX = a ** b
 POW_FUNCS = Pow(a, b).eval()
+IPOW_TEST = a
+IPOW_TEST **= b
 
-"""
-D = Mul(a, b).eval()
-
-F = Log(Num(math.e, 0), Num(2, 0)).eval()
-G = Pow(Num(math.e, 0), Num(2, 0.25)).eval()
-X = Exp(Num(2, 0.25)).eval()
-
-H = Sin(Num(0, 0.2)).eval()
-I = Cos(Num(0, 0.2)).eval()
-J = Tan(Num(0, 0.2)).eval()
-
-K = ArcSin(Num(0, 0.2)).eval()
-L = ArcCos(Num(0, 0.2)).eval()
-M = ArcTan(Num(0, 0.2)).eval()
-
-N = Sinh(Num(0, 0.2)).eval()
-O = Cosh(Num(0, 0.2)).eval()
-P = Tanh(Num(0, 0.2)).eval()
-
-Q = ArcSinh(Num(0, 0.2)).eval()
-R = ArcCosh(Num(2, 0.2)).eval()
-S = ArcTanh(Num(0, 0.2)).eval()
-
-T = Roo(Num(2, 1)).eval()
-
-F.prnt()
-G.prnt()
-X.prnt()
-
-H.prnt()
-I.prnt()
-J.prnt()
-
-K.prnt()
-L.prnt()
-M.prnt()
-
-N.prnt()
-O.prnt()
-P.prnt()
-
-Q.prnt()
-R.prnt()
-S.prnt()
-
-T.prnt()
+POW_CONST = a ** 2
+POW_CONSX = Pow(a, 2).eval()
+POW_CONSR = 2 ** a
+POW_CONSY = Pow(2, a).eval()
 
 
-# Node Tree
-node1 = Num(2, 0.1)
-node2 = Num(3, 0.2)
-node3 = Num(1, 0)
-node4 = Num(1, 0)
+# Print test results
+print("Infix addition:                           ", ADD_INFIX)
+print("Function addition:                        ", ADD_FUNCS)
+print("Addition assignment:                      ", IADD_TEST)
+print("Test status:                              ", ADD_INFIX == IADD_TEST)
+print()
 
-node5 = Div(node1, node2)
-node6 = Sub(node3, node5)
-node7 = Div(node4, node6)
+print("Infix constant addition:                  ", ADD_CONST)
+print("Function constant addition:               ", ADD_CONSX)
+print("Test status:                              ", ADD_CONST == ADD_CONSX)
+print("Reverse infix constant addition:          ", ADD_CONSR)
+print("Reverse function constant addition:       ", ADD_CONSY)
+print("Test status:                              ", ADD_CONSR == ADD_CONSY)
+print()
 
-result = node7.eval()
+print("Infix subtraction:                        ", SUB_INFIX)
+print("Function subtraction:                     ", SUB_FUNCS)
+print("Subtraction assignment:                   ", ISUB_TEST)
+print("Test status:                              ", SUB_INFIX == ISUB_TEST)
+print()
 
-result.prnt()
+print("Infix constant subtraction:               ", SUB_CONST)
+print("Function constant subtraction:            ", SUB_CONSX)
+print("Test status:                              ", SUB_CONST == SUB_CONSX)
+print("Reverse infix constant subtraction:       ", SUB_CONSR)
+print("Reverse function constant subtraction:    ", SUB_CONSY)
+print("Test status:                              ", SUB_CONSR == SUB_CONSY)
+print()
 
+print("Infix multiplication:                     ", MUL_INFIX)
+print("Function multiplication:                  ", MUL_FUNCS)
+print("Multiplication assignment:                ", IMUL_TEST)
+print("Test status:                              ", MUL_INFIX == IMUL_TEST)
+print()
 
-# NumLists
-nlist = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
-# nlist.condense().prnt()
+print("Infix constant multiplication:            ", MUL_CONST)
+print("Function constant multiplication:         ", MUL_CONSX)
+print("Test status:                              ", MUL_CONST == MUL_CONSX)
+print("Reverse infix constant multiplication:    ", MUL_CONSR)
+print("Reverse function constant multiplication: ", MUL_CONSY)
+print("Test status:                              ", MUL_CONSR == MUL_CONSY)
+print()
 
-nlist1 = NumList([9, 11, 10, Num(10, 1), 11, Num(12, 2), 9, 10])
-nlist2 = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
+print("Infix division:                           ", DIV_INFIX)
+print("Function division:                        ", DIV_FUNCS)
+print("Division assignment:                      ", IDIV_TEST)
+print("Test status:                              ", DIV_INFIX == IDIV_TEST)
+print()
 
-sumlist = ListFnc(Add, nlist1, nlist2).eval()
-sumlist.prnt()
-sumlist.condense().prnt()
-Add(nlist1.condense(),nlist2.condense()).eval().prnt()
+print("Infix constant division:                  ", DIV_CONST)
+print("Function constant division:               ", DIV_CONSX)
+print("Test status:                              ", DIV_CONST == DIV_CONSX)
+print("Reverse infix constant division:          ", DIV_CONSR)
+print("Reverse function constant division:       ", DIV_CONSY)
+print("Test status:                              ", DIV_CONSR == DIV_CONSY)
+print()
 
-coslist = ListFnc(Cos, nlist1).eval()
-coslist.prnt()
-coslist.condense().prnt()
+print("Infix powers:                             ", POW_INFIX)
+print("Function powers:                          ", POW_FUNCS)
+print("Powers assignment:                        ", IPOW_TEST)
+print("Test status:                              ", POW_INFIX == IPOW_TEST)
+print()
 
-ListFnc(Add, nlist1, 1).eval().condense().prnt()
-
-ListFnc(Log, nlist1).eval().condense().prnt()
-ListFnc(Log, nlist1, nlist2).eval().condense().prnt()
-
-# Test automatic condensing
-Add(nlist1, nlist2).eval().prnt()
-"""
-
-# Test infix operators
-ADD_INFIX.prnt()
-ADD_FUNCS.prnt()
-
-SUB_INFIX.prnt()
-SUB_FUNCS.prnt()
-
-MUL_INFIX.prnt()
-MUL_FUNCS.prnt()
-
-DIV_INFIX.prnt()
-DIV_FUNCS.prnt()
-
-POW_INFIX.prnt()
-POW_FUNCS.prnt()
+print("Infix constant powers:                    ", POW_CONST)
+print("Function constant powers:                 ", POW_CONSX)
+print("Test status:                              ", POW_CONST == POW_CONSX)
+print("Reverse infix constant powers:            ", POW_CONSR)
+print("Reverse function constant powers:         ", POW_CONSY)
+print("Test status:                              ", POW_CONSR == POW_CONSY)
+print()
 

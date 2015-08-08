@@ -6,6 +6,8 @@ from enerpy.calc import *
 class Add(Fnc):
 	def __init__(self, a, b):
 		super().__init__()
+		self.name = "Add"
+
 		a = enerfy(a)
 		b = enerfy(b)
 		
@@ -20,6 +22,8 @@ class Add(Fnc):
 class Sub(Fnc):
 	def __init__(self, a, b):
 		super().__init__()
+		self.name = "Sub"
+
 		a = enerfy(a)
 		b = enerfy(b)
 		
@@ -35,6 +39,8 @@ class Sub(Fnc):
 class Mul(Fnc):
 	def __init__(self, a, b):
 		super().__init__()
+		self.name = "Mul"
+
 		a = enerfy(a)
 		b = enerfy(b)
 		
@@ -49,6 +55,8 @@ class Mul(Fnc):
 class Div(Fnc):
 	def __init__(self, a, b):
 		super().__init__()
+		self.name = "Div"
+
 		a = enerfy(a)
 		b = enerfy(b)
 		
