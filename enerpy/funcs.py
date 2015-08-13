@@ -1,4 +1,13 @@
-from enerpy.base import *
+"""
+enerpy/funcs.py:
+This module contains all the function classes.
+Arguments will be coerced to Num objects.
+"""
+
+from enerpy.base import Num
+from enerpy.base import Fnc
+from enerpy.base import enerfy
+
 from enerpy.calc import *
 
 
@@ -15,8 +24,8 @@ class Add(Fnc):
         self.arg2 = b
 
     def eval(self):
-        c = self.arg1.eval() + self.arg2.eval()
-        return c
+        result = add(self.arg1.eval(), self.arg2.eval())
+        return result
 
 
 class Sub(Fnc):
@@ -31,8 +40,8 @@ class Sub(Fnc):
         self.arg2 = b
 
     def eval(self):
-        c = self.arg1.eval() - self.arg2.eval()
-        return c
+        result = sub(self.arg1.eval(), self.arg2.eval())
+        return result
 
 
 # Mul, Div classes
@@ -48,8 +57,8 @@ class Mul(Fnc):
         self.arg2 = b
 
     def eval(self):
-        c = self.arg1.eval() * self.arg2.eval()
-        return c
+        result = mul(self.arg1.eval(), self.arg2.eval())
+        return result
 
 
 class Div(Fnc):
@@ -64,8 +73,8 @@ class Div(Fnc):
         self.arg2 = b
 
     def eval(self):
-        c = self.arg1.eval() / self.arg2.eval()
-        return c
+        result = div(self.arg1.eval(), self.arg2.eval())
+        return result
 
 
 # Pow, Log classes
@@ -83,8 +92,8 @@ class Pwr(Fnc):
         self.arg2 = b
 
     def eval(self):
-        c = self.arg1.eval() ** self.arg2.eval()
-        return c
+        result = pwr(self.arg1.eval(), self.arg2.eval())
+        return result
 
 
 # special case: (square) roots
@@ -100,8 +109,8 @@ class Srt(Fnc):
         self.arg2 = Div(1, b)
 
     def eval(self):
-        c = pow(self.arg1.eval(), self.arg2.eval())
-        return c
+        result = pwr(self.arg1.eval(), self.arg2.eval())
+        return result
 
 
 # special case: exponent a, base e
@@ -115,8 +124,8 @@ class Exp(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = exp(self.arg1.eval())
-        return c
+        result = exp(self.arg1.eval())
+        return result
 
 # generic logarithm: argument a, base b (default: math.e)
 class Log(Fnc):
@@ -131,8 +140,8 @@ class Log(Fnc):
         self.arg2 = b
 
     def eval(self):
-        c = log(self.arg1.eval(), self.arg2.eval())
-        return c
+        result = log(self.arg1.eval(), self.arg2.eval())
+        return result
 
 
 # Sin, Cos, Tan classes
@@ -140,14 +149,14 @@ class Sin(Fnc):
     def __init__(self, a):
         super().__init__()
         self.name = "Sin"
-        
+
         a = enerfy(a)
 
         self.arg1 = a
 
     def eval(self):
-        c = sin(self.arg1.eval())
-        return c
+        result = sin(self.arg1.eval())
+        return result
 
 
 class Cos(Fnc):
@@ -159,8 +168,8 @@ class Cos(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = cos(self.arg1.eval())
-        return c
+        result = cos(self.arg1.eval())
+        return result
 
 
 class Tan(Fnc):
@@ -172,8 +181,8 @@ class Tan(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = tan(self.arg1.eval())
-        return c
+        result = tan(self.arg1.eval())
+        return result
 
 
 # ArcSin, ArcCos, ArcTan classes
@@ -186,8 +195,8 @@ class ArcSin(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = arcsin(self.arg1.eval())
-        return c
+        result = arcsin(self.arg1.eval())
+        return result
 
 
 class ArcCos(Fnc):
@@ -199,8 +208,8 @@ class ArcCos(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = arccos(self.arg1.eval())
-        return c
+        result = arccos(self.arg1.eval())
+        return result
 
 
 class ArcTan(Fnc):
@@ -212,8 +221,8 @@ class ArcTan(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = arctan(self.arg1.eval())
-        return c
+        result = arctan(self.arg1.eval())
+        return result
 
 
 # Sinh, Cosh, Tanh classes
@@ -226,8 +235,8 @@ class Sinh(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = sinh(self.arg1.eval())
-        return c
+        result = sinh(self.arg1.eval())
+        return result
 
 
 class Cosh(Fnc):
@@ -239,8 +248,8 @@ class Cosh(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = cosh(self.arg1.eval())
-        return c
+        result = cosh(self.arg1.eval())
+        return result
 
 
 class Tanh(Fnc):
@@ -252,8 +261,8 @@ class Tanh(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = tanh(self.arg1.eval())
-        return c
+        result = tanh(self.arg1.eval())
+        return result
 
 
 # ArcSinh, ArcCosh, ArcTanh classes
@@ -266,8 +275,8 @@ class ArcSinh(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = arcsinh(self.arg1.eval())
-        return c
+        result = arcsinh(self.arg1.eval())
+        return result
 
 
 class ArcCosh(Fnc):
@@ -279,8 +288,8 @@ class ArcCosh(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = arccosh(self.arg1.eval())
-        return c
+        result = arccosh(self.arg1.eval())
+        return result
 
 
 class ArcTanh(Fnc):
@@ -292,9 +301,14 @@ class ArcTanh(Fnc):
         self.arg1 = a
 
     def eval(self):
-        c = arctanh(self.arg1.eval())
-        return c
+        result = arctanh(self.arg1.eval())
+        return result
 
-funcs_two_arg = [Add, Sub, Mul, Div, Pow]
-funcs_one_arg = [Exp, Sin, Cos, Tan, ArcSin, ArcCos, ArcTan, Sinh, Cosh, Tanh, ArcSinh, ArcCosh, ArcTanh]
-funcs_var_arg = [Roo, Log]
+
+FUNCS_TWO_ARG = [Add, Sub, Mul, Div, Pwr]
+FUNCS_ONE_ARG = [Exp, \
+                 Sin, Cos, Tan, \
+                 ArcSin, ArcCos, ArcTan, \
+                 Sinh, Cosh, Tanh, \
+                 ArcSinh, ArcCosh, ArcTanh]
+FUNCS_VAR_ARG = [Srt, Log]

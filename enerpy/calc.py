@@ -1,5 +1,5 @@
 """
-enerpy.base.py:
+enerpy/calc.py:
 This module contains all the math neccessary.
 Arguments are expected to be Num objects.
 """

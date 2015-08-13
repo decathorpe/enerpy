@@ -36,7 +36,7 @@ class ListFnc(Fnc, list):
         
         
         # Check for functions that accept only one argument
-        if fnc in funcs_one_arg:
+        if fnc in FUNCS_ONE_ARG:
             if b is not None:
                 raise(TypeError("This function only accepts one argument."))
         
@@ -45,7 +45,7 @@ class ListFnc(Fnc, list):
         
         
         # Check for functions that accept one or two arguments
-        elif fnc in funcs_var_arg:
+        elif fnc in FUNCS_VAR_ARG:
             # No second argument
             if b is None:
                 for i in range(0, len(a)):
@@ -67,7 +67,7 @@ class ListFnc(Fnc, list):
         
         
         # Check for functions that accept only two arguments
-        elif fnc in funcs_two_arg:
+        elif fnc in FUNCS_TWO_ARG:
             if b is None:
                 raise(TypeError("This function requires two arguments."))
             
