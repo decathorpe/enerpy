@@ -97,10 +97,10 @@ class Pwr(Fnc):
 
 
 # special case: (square) roots
-class Srt(Fnc):
+class Root(Fnc):
     def __init__(self, a, b=2):
         super().__init__()
-        self.name = "Srt"
+        self.name = "Root"
 
         a = enerfy(a)
         b = enerfy(b)
@@ -311,4 +311,4 @@ FUNCS_ONE_ARG = [Exp, \
                  ArcSin, ArcCos, ArcTan, \
                  Sinh, Cosh, Tanh, \
                  ArcSinh, ArcCosh, ArcTanh]
-FUNCS_VAR_ARG = [Srt, Log]
+FUNCS_VAR_ARG = [Root, Log]

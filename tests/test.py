@@ -55,14 +55,14 @@ DIV_CONSR = 3 / a
 DIV_CONSY = Div(3, a).eval()
 
 POW_INFIX = a ** b
-POW_FUNCS = Pow(a, b).eval()
+POW_FUNCS = Pwr(a, b).eval()
 IPOW_TEST = a
 IPOW_TEST **= b
 
 POW_CONST = a ** 2
-POW_CONSX = Pow(a, 2).eval()
+POW_CONSX = Pwr(a, 2).eval()
 POW_CONSR = 2 ** a
-POW_CONSY = Pow(2, a).eval()
+POW_CONSY = Pwr(2, a).eval()
 
 
 # Unary operators
@@ -113,7 +113,7 @@ REV_SINH = Sinh(ArcSinh(a/4)).eval()
 REV_COSH = Cosh(ArcCosh(a*4)).eval()
 REV_TANH = Tanh(ArcTanh(a/4)).eval()
 
-ROOT = Roo(Num(2, 1)).eval()
+ROOT = Root(Num(2, 1)).eval()
 
 
 # Node Tree

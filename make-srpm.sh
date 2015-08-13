@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-VERSION=0.1.1
+VERSION=0.2.0
 
 mkdir -p $HOME/rpmbuild/SOURCES
 mkdir -p $HOME/rpmbuild/SPECS
