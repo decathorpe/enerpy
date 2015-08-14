@@ -6,7 +6,6 @@ Arguments will be coerced to Num objects.
 
 import math
 
-from enerpy.base import Num
 from enerpy.base import Fnc
 from enerpy.base import enerfy
 
@@ -17,6 +16,10 @@ from enerpy.calc import sinh, cosh, tanh, arcsinh, arccosh, arctanh
 
 # Add, Sub classes
 class Add(Fnc):
+    """
+    enerpy.Add:
+    Function class to add two Nums.
+    """
     def __init__(self, a, b):
         super().__init__()
         self.name = "Add"
@@ -33,6 +36,10 @@ class Add(Fnc):
 
 
 class Sub(Fnc):
+    """
+    enerpy.Sub:
+    Function class to subtract two Nums.
+    """
     def __init__(self, a, b):
         super().__init__()
         self.name = "Sub"
@@ -50,6 +57,10 @@ class Sub(Fnc):
 
 # Mul, Div classes
 class Mul(Fnc):
+    """
+    enerpy.Mul:
+    Function class to multiply two Nums.
+    """
     def __init__(self, a, b):
         super().__init__()
         self.name = "Mul"
@@ -66,6 +77,10 @@ class Mul(Fnc):
 
 
 class Div(Fnc):
+    """
+    enerpy.Div:
+    Function class to divide one Num by another.
+    """
     def __init__(self, a, b):
         super().__init__()
         self.name = "Div"
@@ -85,6 +100,10 @@ class Div(Fnc):
 
 # generic power: a raised to power b
 class Pwr(Fnc):
+    """
+    enerpy.Pwr:
+    Function class to raise one Num to the power of another Num.
+    """
     def __init__(self, a, b):
         super().__init__()
         self.name = "Pwr"
@@ -102,6 +121,11 @@ class Pwr(Fnc):
 
 # special case: (square) roots
 class Root(Fnc):
+    """
+    enerpy.Root:
+    Function class to get the Num-th root of another Num.
+    Default is square root, other roots can be specified by optional second arg.
+    """
     def __init__(self, a, b=2):
         super().__init__()
         self.name = "Root"
@@ -119,6 +143,10 @@ class Root(Fnc):
 
 # special case: exponent a, base e
 class Exp(Fnc):
+    """
+    enerpy.Exp:
+    Function class to get e to the Num-th power.
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "Exp"
@@ -133,6 +161,11 @@ class Exp(Fnc):
 
 # generic logarithm: argument a, base b (default: math.e)
 class Log(Fnc):
+    """
+    enerpy.Log:
+    Function class to get the logarithm of a Num, base Num.
+    Default is base e, other bases can be specified by optional second arg.
+    """
     def __init__(self, a, b=math.e):
         super().__init__()
         self.name = "Log"
@@ -150,6 +183,10 @@ class Log(Fnc):
 
 # Sin, Cos, Tan classes
 class Sin(Fnc):
+    """
+    enerpy.Sin:
+    Function class to get the Sine of a Num (input in radians).
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "Sin"
@@ -164,6 +201,10 @@ class Sin(Fnc):
 
 
 class Cos(Fnc):
+    """
+    enerpy.Cos:
+    Function class to get the Cosine of a Num (input in radians).
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "Cos"
@@ -177,6 +218,10 @@ class Cos(Fnc):
 
 
 class Tan(Fnc):
+    """
+    enerpy.Tan:
+    Function class to get the Tangent of a Num (input in radians).
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "Tan"
@@ -191,6 +236,10 @@ class Tan(Fnc):
 
 # ArcSin, ArcCos, ArcTan classes
 class ArcSin(Fnc):
+    """
+    enerpy.ArcSin:
+    Function class to get the inverse Sine of a Num (output in radians).
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "ArcSin"
@@ -204,6 +253,10 @@ class ArcSin(Fnc):
 
 
 class ArcCos(Fnc):
+    """
+    enerpy.ArcCos:
+    Function class to get the inverse Cosine of a Num (output in radians).
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "ArcCos"
@@ -217,6 +270,10 @@ class ArcCos(Fnc):
 
 
 class ArcTan(Fnc):
+    """
+    enerpy.ArcTan:
+    Function class to get the inverse Tangent of a Num (output in radians).
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "ArcTan"
@@ -231,6 +288,10 @@ class ArcTan(Fnc):
 
 # Sinh, Cosh, Tanh classes
 class Sinh(Fnc):
+    """
+    enerpy.Sinh:
+    Function class to get the hyperbolic Sine of a Num.
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "Sinh"
@@ -244,6 +305,10 @@ class Sinh(Fnc):
 
 
 class Cosh(Fnc):
+    """
+    enerpy.Cosh:
+    Function class to get the hyperbolic Cosine of a Num .
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "Cosh"
@@ -257,6 +322,10 @@ class Cosh(Fnc):
 
 
 class Tanh(Fnc):
+    """
+    enerpy.Sinh:
+    Function class to get the hyperbolic Tangent of a Num.
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "Tanh"
@@ -271,6 +340,10 @@ class Tanh(Fnc):
 
 # ArcSinh, ArcCosh, ArcTanh classes
 class ArcSinh(Fnc):
+    """
+    enerpy.ArcSinh:
+    Function class to get the inverse hyperbolic Sine of a Num.
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "ArcSinh"
@@ -284,6 +357,10 @@ class ArcSinh(Fnc):
 
 
 class ArcCosh(Fnc):
+    """
+    enerpy.ArcCosh:
+    Function class to get the inverse hyperbolic Cosine of a Num.
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "ArcCosh"
@@ -297,6 +374,12 @@ class ArcCosh(Fnc):
 
 
 class ArcTanh(Fnc):
+    """
+    enerpy.ArcTanh:
+    Function class to get the inverse hyperbolic Tangent of a Num.
+    # FIXME
+    This might not return the correct result for the number's standard error.
+    """
     def __init__(self, a):
         super().__init__()
         self.name = "ArcTanh"

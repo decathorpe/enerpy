@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from enerpy.base import Num
 from enerpy.funcs import *
 
 deltaH = Num(2024.13, 0.25)
