@@ -68,127 +68,65 @@ class Num(Node):
 
     # Binary operators
     def __add__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val + other.val
-        result.var = self.var + other.var
-        return result
+        from enerpy.funcs import Add
+        return Add(self, other)
 
     def __radd__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = other.val + self.val
-        result.var = other.var + self.var
-        return result
+        from enerpy.funcs import Add
+        return Add(other, self)
 
     def __iadd__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val + other.val
-        result.var = self.var + other.var
-        return result
+        from enerpy.funcs import Add
+        return Add(self, other)
 
     def __sub__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val - other.val
-        result.var = self.var + other.var
-        return result
+        from enerpy.funcs import Sub
+        return Sub(self, other)
 
     def __rsub__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = other.val - self.val
-        result.var = other.var + self.var
-        return result
+        from enerpy.funcs import Sub
+        return Sub(other, self)
 
     def __isub__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val - other.val
-        result.var = self.var + other.var
-        return result
+        from enerpy.funcs import Sub
+        return Sub(self, other)
 
     def __mul__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val * other.val
-        result.var = math.pow(result.val, 2) * \
-                ((self.var / (math.pow(self.val, 2))) + \
-                (other.var / (math.pow(other.val, 2))))
-        return result
+        from enerpy.funcs import Mul
+        return Mul(self, other)
 
     def __rmul__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val * other.val
-        result.var = math.pow(result.val, 2) * \
-                ((self.var / (math.pow(self.val, 2))) + \
-                (other.var / (math.pow(other.val, 2))))
-        return result
+        from enerpy.funcs import Mul
+        return Mul(other, self)
 
     def __imul__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val * other.val
-        result.var = math.pow(result.val, 2) * \
-                ((self.var / (math.pow(self.val, 2))) + \
-                (other.var / (math.pow(other.val, 2))))
-        return result
+        from enerpy.funcs import Mul
+        return Mul(self, other)
 
     def __truediv__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val / other.val
-        result.var = math.pow(result.val, 2) * \
-                ((self.var / (math.pow(self.val, 2))) + \
-                (other.var / (math.pow(other.val, 2))))
-        return result
+        from enerpy.funcs import Div
+        return Div(self, other)
 
     def __rtruediv__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = other.val / self.val
-        result.var = math.pow(result.val, 2) * \
-                ((self.var / (math.pow(self.val, 2))) +
-                 (other.var / (math.pow(other.val, 2))))
-        return result
+        from enerpy.funcs import Div
+        return Div(other, self)
 
     def __itruediv__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val / other.val
-        result.var = math.pow(result.val, 2) *\
-                ((self.var / (math.pow(self.val, 2))) + \
-                (other.var / (math.pow(other.val, 2))))
-        return result
+        from enerpy.funcs import Div
+        return Div(self, other)
 
     def __pow__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val ** other.val
-        result.var = math.pow(result.val, 2) * \
-                (math.pow(other.val/self.val, 2) * self.var + \
-                math.pow(math.log(self.val), 2) * other.var)
-        return result
+        from enerpy.funcs import Pwr
+        return Pwr(self, other)
 
     def __rpow__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val ** other.val
-        result.var = math.pow(result.val, 2) * \
-                (math.pow(self.val/other.val, 2) * other.var + \
-                math.pow(math.log(other.val), 2) * self.var)
-        return result
+        from enerpy.funcs import Pwr
+        return Pwr(other, self)
 
     def __ipow__(self, other):
-        other = enerfy(other)
-        result = Num()
-        result.val = self.val ** other.val
-        result.var = math.pow(result.val, 2) * \
-                (math.pow(other.val/self.val, 2) * self.var + \
-                math.pow(math.log(self.val), 2) * other.var)
-        return result
+        from enerpy.funcs import Pwr
+        return Pwr(self, other)
+
 
     # Unary operators
     def __neg__(self):
@@ -262,6 +200,55 @@ class Fnc(Node):
     """
     def __init__(self):
         super().__init__()
+
+    def __repr__(self):
+        return str(round(self.eval().val, 14)) + \
+                   " +- " + \
+                   str(round(self.eval().sdv(), 14))
+
+    # Comparisons
+    def __lt__(self, other):
+        other = enerfy(other)
+        if self.eval().val < other.eval().val:
+            return True
+        else:
+            return False
+
+    def __le__(self, other):
+        other = enerfy(other)
+        if self.eval().val <= other.eval().val:
+            return True
+        else:
+            return False
+
+    def __eq__(self, other):
+        other = enerfy(other)
+        if round(self.eval().val, 14) == round(other.eval().val, 14) and \
+           round(self.eval().var, 14) == round(other.eval().var, 14):
+            return True
+        else:
+            return False
+
+    def __ne__(self, other):
+        other = enerfy(other)
+        if round(self.eval().val, 14) != round(other.eval().val, 14):
+            return True
+        else:
+            return False
+
+    def __gt__(self, other):
+        other = enerfy(other)
+        if self.eval().val > other.eval().val:
+            return True
+        else:
+            return False
+
+    def __ge__(self, other):
+        other = enerfy(other)
+        if self.eval().val >= other.eval().val:
+            return True
+        else:
+            return False
 
 
 def enerfy(candicate):

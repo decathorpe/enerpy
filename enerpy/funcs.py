@@ -4,11 +4,15 @@ This module contains all the function classes.
 Arguments will be coerced to Num objects.
 """
 
+import math
+
 from enerpy.base import Num
 from enerpy.base import Fnc
 from enerpy.base import enerfy
 
-from enerpy.calc import *
+from enerpy.calc import add, sub, mul, div, pwr, log, exp
+from enerpy.calc import sin, cos, tan, arcsin, arccos, arctan
+from enerpy.calc import sinh, cosh, tanh, arcsinh, arccosh, arctanh
 
 
 # Add, Sub classes
