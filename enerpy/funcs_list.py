@@ -21,7 +21,7 @@ def listify(num, length):
 
     tmp = list()
     for i in range(0, length):
-        tmp[i] = num
+        tmp.append(num)
     nlist = NumList(tmp)
 
     return nlist

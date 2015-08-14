@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from enerpy.base import Num
 from enerpy.funcs import *
 from enerpy.funcs_list import *
 
