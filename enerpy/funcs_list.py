@@ -1,3 +1,9 @@
+"""
+enerpy/funcs_list.py:
+This module contains all the functionality for dealing with lists of Nums.
+The native type is NumList, and lists and numbers are coerced to it.
+"""
+
 from enerpy.base import *
 from enerpy.calc import *
 from enerpy.lists import *
@@ -21,11 +27,11 @@ class ListFnc(Fnc, list):
     def __init__(self, fnc, a, b=None):
         super().__init__()
 
-        # FIXME, NO IDEA WHY THIS DOES NOT WORK
+        # FIX ME, NO IDEA WHY THIS DOES NOT WORK
         # This is why there is the CATCHME-else-clause at the end.
         # Check if fnc argument is an instance of the Fnc() class
-        #if not isinstance(fnc, Fnc):
-        #    raise(TypeError("ListFnc requires a Fnc() class as fnc argument."))
+        #if !isinstance(fnc, Fnc):
+        #    raise TypeError("ListFnc requires a Fnc() class as fnc argument.")
 
         self.fnc = fnc
 
