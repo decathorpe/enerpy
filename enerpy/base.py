@@ -61,10 +61,14 @@ class Num(Node):
         return sdv
 
     def __repr__(self):
-        return str(round(self.val, 14)) + " +- " + str(round(self.sdv(), 14))
+        return str(round(self.val, 14)) + \
+                   " +- " + \
+                   str(round(self.sdv(), 14))
 
     def prnt(self):
-        print(str(round(self.val, 14)) + " +- " + str(round(self.sdv(), 14)))
+        print(str(round(self.val, 14)) + \
+                  " +- " + \
+                  str(round(self.sdv(), 14)))
 
     # Binary operators
     def __add__(self, other):
