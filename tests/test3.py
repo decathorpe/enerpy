@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from enerpy.base import Num
-from enerpy.funcs import *
+from enerpy.funcs import Mul, Div, Exp
 
 deltaH = Num(2024.13, 0.25)
 Rgas = Num(8.3144621, 0.0000075)

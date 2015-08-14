@@ -399,3 +399,4 @@ FUNCS_ONE_ARG = [Exp, \
                  Sinh, Cosh, Tanh, \
                  ArcSinh, ArcCosh, ArcTanh]
 FUNCS_VAR_ARG = [Root, Log]
+

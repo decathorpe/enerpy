@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 
-from enerpy.funcs import *
-from enerpy.funcs_list import *
+from enerpy.funcs import Add
 
-a = NumList([1, 3, 1, 2, 4, 2, 1.5, 2, 3])
-b = NumList([1, 2, 3, 1, 2, 5, 2.1, 2, 4])
+from enerpy.lists import NumList
+from enerpy.funcs_list import ListFnc
 
-print("a", end=" ")
-a.condense().prnt()
+A = NumList([1, 3, 1, 2, 4, 2, 1.5, 2, 3])
+B = NumList([1, 2, 3, 1, 2, 5, 2.1, 2, 4])
 
-print("b", end=" ")
-b.condense().prnt()
+print("A", end=" ")
+A.condense().prnt()
 
-c = ListFnc(Add, a, b)
-c.eval().prnt()
-c.eval().condense().prnt()
+print("B", end=" ")
+B.condense().prnt()
+
+C = ListFnc(Add, A, B)
+C.eval().prnt()
+C.eval().condense().prnt()
