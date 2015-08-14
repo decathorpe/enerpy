@@ -31,12 +31,12 @@ class ListFnc(Fnc, list):
 
         # Check if neither a or b are lists
         if not isinstance(a, list) and not isinstance(b, list):
-            raise(TypeError("ListFnc should only be used for a list or two lists."))
+            raise TypeError("ListFnc should only be used for a list or two lists.")
 
         # Check for functions that accept only one argument
         if fnc in FUNCS_ONE_ARG:
             if b is not None:
-                raise(TypeError("This function only accepts one argument."))
+                raise TypeError("This function only accepts one argument.")
 
             for i in range(0, len(a)):
                 self.append(self.fnc(a[i]))
@@ -51,7 +51,7 @@ class ListFnc(Fnc, list):
             # Second argument already is a list
             elif isinstance(b, list):
                 if len(a) is not len(b):
-                    raise(TypeError("Lists must be of equal length to perform functions on them."))
+                    raise TypeError("Lists must be of equal length to perform functions on them.")
 
                 for i in range(0, len(a)):
                     self.append(self.fnc(a[i], b[i]))
@@ -65,7 +65,7 @@ class ListFnc(Fnc, list):
         # Check for functions that accept only two arguments
         elif fnc in FUNCS_TWO_ARG:
             if b is None:
-                raise(TypeError("This function requires two arguments."))
+                raise TypeError("This function requires two arguments.")
 
             # Listify non-list arguments
             if isinstance(a, list) and not isinstance(b, list):
@@ -77,15 +77,15 @@ class ListFnc(Fnc, list):
                 a = listify(a, n)
 
             if len(a) is not len(b):
-                raise(TypeError("Lists must be of equal length to perform functions on them."))
-            
+                raise TypeError("Lists must be of equal length to perform functions on them.")
+
             for i in range(0, len(a)):
                 self.append(self.fnc(a[i], b[i]))
 
         # CATCHME
         # Otherwise: Fnc does not seem to be supported, or fatal error
         else:
-            raise(TypeError("Either FATAL ERROR, or Fnc does not seem to be a supported function."))
+            raise TypeError("Either FATAL ERROR, or Fnc does not seem to be a supported function.")
 
 
     def eval(self):
