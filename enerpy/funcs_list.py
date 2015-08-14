@@ -4,26 +4,40 @@ This module contains all the functionality for dealing with lists of Nums.
 The native type is NumList, and lists and numbers are coerced to it.
 """
 
-from enerpy.base import *
-from enerpy.calc import *
-from enerpy.lists import *
-from enerpy.funcs import *
+from enerpy.base import Fnc
+from enerpy.lists import NumList
+from enerpy.funcs import FUNCS_ONE_ARG, FUNCS_TWO_ARG, FUNCS_VAR_ARG
 
 
 def listify(num, length):
+    """
+    enerpy.listify:
+    This is the coersion function by which non-NumList-arguments to functions
+    expecting NumLists are converted to NumList object.
+    """
     # Do not create lists of lists erroneously
     if isinstance(num, list):
         return num
 
     tmp = list()
     for i in range(0, length):
-        tmp.append(num)
+        tmp[i] = num
     nlist = NumList(tmp)
 
     return nlist
 
 
 class ListFnc(Fnc, list):
+    """
+    enerpy.ListFnc:
+    This is the equivalent of a Fnc class for NumLists.
+    It is initialised with a Fnc class, and, depending on how many arguments
+    the function needs, one or two NumLists or Nums.
+    Conversion to a list of Fnc instances is done at initialisation.
+    At least one NumList is required, otherwise the Fnc itself should be used.
+    Every ListFnc object can be evaluated to a NumList() containing
+    all element-by-element results by use of the .eval() method.
+    """
     def __init__(self, fnc, a, b=None):
         super().__init__()
 
@@ -75,12 +89,12 @@ class ListFnc(Fnc, list):
 
             # Listify non-list arguments
             if isinstance(a, list) and not isinstance(b, list):
-                n = len(a)
-                b = listify(b, n)
+                length = len(a)
+                b = listify(b, length)
 
             if isinstance(b, list) and not isinstance(a, list):
-                n = len(b)
-                a = listify(a, n)
+                length = len(b)
+                a = listify(a, length)
 
             if len(a) is not len(b):
                 raise TypeError("Lists must be of equal length to perform functions on them.")
@@ -95,8 +109,8 @@ class ListFnc(Fnc, list):
 
 
     def eval(self):
-        c = NumList()
+        result = NumList()
         for i in range(0, len(self)):
-            c.append(self[i].eval())
-        return c
+            result.append(self[i].eval())
+        return result
 
