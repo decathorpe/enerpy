@@ -1,21 +1,30 @@
-Summary: python package for gaussian error propagation
+%if %{fedora} > 22
+%define debug_package %{nil}
+%endif
+
 Name: enerpy
 Version: 0.2.1
-Release: 1%{?dist}
+Release: 2%{?dist}
+
+Summary: gaussian error propagation
 License: GPLv2
 URL: http://github.com/defathorpe/enerpy
 
 Source0: enerpy-%{version}.tar.gz
 
-BuildArchitectures: noarch
-
 BuildRequires: python3-devel
 
-Requires: python3
-
+Requires: python3-enerpy
 
 %description
-enerpy is a python package for gaussian error propagation
+enerpy is a python script and for gaussian error propagation
+
+
+%package -n python3-enerpy
+Summary: python package for gaussian error propagation
+%description -n python3-enerpy
+enerpy is a python script and for gaussian error propagation.
+this package contains the python3 module.
 
 
 %prep
@@ -23,10 +32,11 @@ enerpy is a python package for gaussian error propagation
 
 
 %build
+%py3_build
 
 
 %install
-%{__python3} ./setup.py install --root=$RPM_BUILD_ROOT
+%py3_install
 
 
 %clean
@@ -36,13 +46,21 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %postun
 
+%post -n python3-enerpy
+%postun -n python3-enerpy
+
 
 %files
-%{python3_sitelib}/enerpy
+
+%files -n python3-enerpy
+%{python3_sitelib}/enerpy/
 %{python3_sitelib}/enerpy-%{version}-py3.4.egg-info
 
 
 %changelog
+* Sat Sep 26 2015 Fabio Valentini <decathorpe@gmail.com>
+- Modernize spec.
+
 * Fri Aug 14 2015 Fabio Valentini - 0.2.1-1
 - Update to release 0.2.1.
 
@@ -84,5 +102,4 @@ rm -rf $RPM_BUILD_ROOT
 
 * Thu Jun 11 2015 Fabio Valentini <decathorpe@gmail.com> - 0.0.1-1
 - Initial package.
-
 
