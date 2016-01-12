@@ -30,6 +30,9 @@ class Add(Fnc):
         self.arg1 = a
         self.arg2 = b
 
+    def __repr__(self):
+        return repr(self.arg1) + " + " + repr(self.arg2)
+
     def eval(self):
         result = add(self.arg1.eval(), self.arg2.eval())
         return result
@@ -49,6 +52,9 @@ class Sub(Fnc):
 
         self.arg1 = a
         self.arg2 = b
+
+    def __repr__(self):
+        return repr(self.arg1) + " - (" + repr(self.arg2) + ")"
 
     def eval(self):
         result = sub(self.arg1.eval(), self.arg2.eval())
@@ -71,6 +77,9 @@ class Mul(Fnc):
         self.arg1 = a
         self.arg2 = b
 
+    def __repr__(self):
+        return repr(self.arg1) + " - (" + repr(self.arg2) + ")"
+
     def eval(self):
         result = mul(self.arg1.eval(), self.arg2.eval())
         return result
@@ -90,6 +99,9 @@ class Div(Fnc):
 
         self.arg1 = a
         self.arg2 = b
+
+    def __repr__(self):
+        return repr(self.arg1) + " / (" + repr(self.arg2) + ")"
 
     def eval(self):
         result = div(self.arg1.eval(), self.arg2.eval())
@@ -114,6 +126,9 @@ class Pwr(Fnc):
         self.arg1 = a
         self.arg2 = b
 
+    def __repr__(self):
+        return repr(self.arg1) + " ^ (" + repr(self.arg2) + ")"
+
     def eval(self):
         result = pwr(self.arg1.eval(), self.arg2.eval())
         return result
@@ -130,11 +145,22 @@ class Root(Fnc):
         super().__init__()
         self.name = "Root"
 
+        if b == 2:
+            self.square = True
+        else:
+            self.square = False
+
         a = enerfy(a)
         b = enerfy(b)
 
         self.arg1 = a
         self.arg2 = Div(1, b)
+
+    def __repr__(self):
+        if self.square:
+            return repr(self.arg1) + " sqrt(" + repr(self.arg2) + ")"
+        else:
+            return repr(self.arg1) + " rt(" + repr(self.arg2) + ")(" + repr(self.arg2) + ")"
 
     def eval(self):
         result = pwr(self.arg1.eval(), self.arg2.eval())
@@ -155,6 +181,9 @@ class Exp(Fnc):
 
         self.arg1 = a
 
+    def __repr__(self):
+        return "e^(" + repr(self.arg1) + ")"
+
     def eval(self):
         result = exp(self.arg1.eval())
         return result
@@ -166,15 +195,33 @@ class Log(Fnc):
     Function class to get the logarithm of a Num, base Num.
     Default is base e, other bases can be specified by optional second arg.
     """
-    def __init__(self, a, b=math.e):
+    def __init__(self, a, b=None):
         super().__init__()
         self.name = "Log"
+
+        self.type = None
+
+        if b == None:
+            b = math.e
+            self.type == "natural"
+        elif b == 10:
+            self.type = "decimal"
+        else:
+            self.type = "normal"
 
         a = enerfy(a)
         b = enerfy(b)
 
         self.arg1 = a
         self.arg2 = b
+
+    def __repr__(self):
+        if self.type == "natural":
+            return "ln(" + repr(self.arg1) + ")"
+        elif self.type == "decimal":
+            return "lg(" + repr(self.arg1) + ")"
+        else:
+            return "log(" + repr(self.arg2) + ")(" + repr(self.arg1) + ")"
 
     def eval(self):
         result = log(self.arg1.eval(), self.arg2.eval())
