@@ -3,10 +3,10 @@
 %endif
 
 Name: enerpy
-Version: 0.2.1
-Release: 2%{?dist}
+Version: 0.3.0
+Release: 1%{?dist}
 
-Summary: gaussian error propagation
+Summary: gaussian error propagation python3 module
 License: GPLv2
 URL: http://github.com/defathorpe/enerpy
 
@@ -17,7 +17,7 @@ BuildRequires: python3-devel
 Requires: python3-enerpy
 
 %description
-enerpy is a python script and for gaussian error propagation
+enerpy is a python module for gaussian error propagation
 
 
 %package -n python3-enerpy
@@ -54,10 +54,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n python3-enerpy
 %{python3_sitelib}/enerpy/
-%{python3_sitelib}/enerpy-%{version}-py3.4.egg-info
+%{python3_sitelib}/enerpy-%{version}-py%{python3_version}.egg-info
 
 
 %changelog
+* Thu Feb 18 2016 Fabio Valentini <decathorpe@gmail.com> - 0.3.0-1
+- Bump for version 0.3.0. Clean up spec.
+
 * Sat Sep 26 2015 Fabio Valentini <decathorpe@gmail.com>
 - Modernize spec.
 

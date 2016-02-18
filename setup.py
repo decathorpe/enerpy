@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name = "enerpy",
-    version = "0.2.1",
+    version = "0.3.0",
     author = "Fabio Valentini",
     author_email = "decathorpe (at) gmail (dot) com",
     description = ("Gaussian error propagation and basic statistics library functions"),
@@ -22,8 +22,9 @@ setup(
     packages=['enerpy'],
     long_description=read('README.md'),
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 5 - Production/Stable",
         "Topic :: Utilities",
         "License :: OSI Approved :: GPLv2",
     ],
 )
+
