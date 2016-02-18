@@ -479,3 +479,8 @@ class Log(Fnc):
             print("Error occurred, cannot continue.")
             raise SystemExit
 
+
+FUNCS_TWO_ARG = [Add, Sub, Mul, Div, Pwr]
+FUNCS_ONE_ARG1 = [Exp]
+FUNCS_VAR_ARG = [Root, Log]
+

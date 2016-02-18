@@ -14,9 +14,6 @@ FUNCTIONS3 = ["Sinh", "Cosh", "Tanh", "ArcSinh", "ArcCosh", "ArcTanh"]
 __all__ = FUNCTIONS2 + FUNCTIONS3
 
 
-print("WARNING: Trigonometric functions are not as precise as everything else.")
-
-
 # Sin, Cos, Tan classes
 class Sin(Fnc):
     """
@@ -30,7 +27,7 @@ class Sin(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.sin(a.val)
+        result.val = D(math.sin(a.val))
         result.var = D(math.cos(a.val) ** 2) * a.var
         return result
 
@@ -47,7 +44,7 @@ class Cos(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.cos(a.val)
+        result.val = D(math.cos(a.val))
         result.var = D(math.sin(a.val) ** 2) * a.var
         return result
 
@@ -64,7 +61,7 @@ class Tan(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.tan(a.val)
+        result.val = D(math.tan(a.val))
         result.var = D(math.cos(a.val) ** -4) * a.var
         return result
 
@@ -82,7 +79,7 @@ class ArcSin(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.asin(a.val)
+        result.val = D(math.asin(a.val))
         result.var = (1 / (1 - (a.val ** 2))) * a.var
         return result
 
@@ -99,7 +96,7 @@ class ArcCos(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.acos(a.val)
+        result.val = D(math.acos(a.val))
         result.var = (1 / (1 - (a.val ** 2))) * a.var
         return result
 
@@ -116,7 +113,7 @@ class ArcTan(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.atan(a.val)
+        result.val = D(math.atan(a.val))
         result.var = (1 / (1 + (a.val ** 2) ** 2)) * a.var
         return result
 
@@ -134,7 +131,7 @@ class Sinh(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.sinh(a.val)
+        result.val = D(math.sinh(a.val))
         result.var = D(math.cosh(a.val) ** 2) * a.var
         return result
 
@@ -151,7 +148,7 @@ class Cosh(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.cosh(a.val)
+        result.val = D(math.cosh(a.val))
         result.var = D(math.sinh(a.val) ** 2) * a.var
         return result
 
@@ -168,7 +165,7 @@ class Tanh(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.tanh(a.val)
+        result.val = D(math.tanh(a.val))
         result.var = D(((2 * math.cosh(a.val)) / (math.cosh(2 * a.val) + 1)) ** 2) * a.var
         return result
 
@@ -186,7 +183,7 @@ class ArcSinh(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.asinh(a.val)
+        result.val = D(math.asinh(a.val))
         result.var = (1 / (1 + a.val ** 2)) * a.var
         return result
 
@@ -203,7 +200,7 @@ class ArcCosh(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.acosh(a.val)
+        result.val = D(math.acosh(a.val))
         result.var = (1 / (a.val ** 2 - 1)) * a.var
         return result
 
@@ -222,7 +219,13 @@ class ArcTanh(Fnc):
     def eval(self):
         a = self.arg1.eval()
         result = Num()
-        result.val = math.atanh(a.val)
+        result.val = D(math.atanh(a.val))
         result.var = (1 / ((1 - (a.val ** 2)) ** 2)) * a.var
         return result
+
+
+FUNCS_ONE_ARG2 = [Sin, Cos, Tan,
+                  ArcSin, ArcCos, ArcTan,
+                  Sinh, Cosh, Tanh,
+                  ArcSinh, ArcCosh, ArcTanh]
 

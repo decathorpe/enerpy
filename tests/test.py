@@ -4,15 +4,14 @@ from decimal import Decimal as D
 
 from enerpy import *
 from enerpy.extras import *
-
-# from enerpy.funcs_list import *
+from enerpy.lists import *
 
 
 a = Num(D("2.0"), D("0.5"))
 b = Num(D("8.0"), D("0.4"))
 
-# nlist1 = NumList([9, 11, 10, Num(10, 1), 11, Num(12, 2), 9, 10])
-# nlist2 = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
+nlist1 = NumList([9, 11, 10, Num(10, 1), 11, Num(12, 2), 9, 10])
+nlist2 = NumList([9, 10, 11, Num(10, 1), 11, Num(12, 2), 9, 10])
 
 
 # Some small tests
@@ -121,8 +120,8 @@ result = node7.eval()
 
 
 # NumLists
-# sumlist = ListFnc(Add, nlist1, nlist2).eval()
-# coslist = ListFnc(Cos, nlist1).eval()
+sumlist = ListFnc(Add, nlist1, nlist2).eval()
+coslist = ListFnc(Cos, nlist1).eval()
 
 
 # Print test results
@@ -279,13 +278,12 @@ print()
 print("Square root of 2 +- 1:                    ", ROOT.eval())
 print()
 
-#print("List condensing:                          ", nlist1.condense())
-#print("List of Add +1 functions, condensed:      ", ListFnc(Add, nlist1, 1).eval().condense())
-#print("List of Add functions, condensed:         ", sumlist.condense())
-#print("Sum of condensed Lists:                   ", Add(nlist1.condense(),nlist2.condense()).eval())
-#print("List of Cos functions, condensed:         ", coslist.condense())
-#print("List of Log functions, condensed:         ", ListFnc(Log, nlist1).eval().condense())
-#print("List of Log base b functions, condensed:  ", ListFnc(Log, nlist1, nlist2).eval().condense())
-#print("Automatically condensed Add of Lists:     ", Add(nlist1, nlist2).eval())
-#print()
+print("List condensing:                          ", nlist1.condense())
+print("List of Add +1 functions, condensed:      ", ListFnc(Add, nlist1, 1).eval().condense())
+print("List of Add functions, condensed:         ", sumlist.condense())
+print("Sum of condensed Lists:                   ", Add(nlist1.condense(),nlist2.condense()))
+print("List of Cos functions, condensed:         ", coslist.condense())
+print("List of Log functions, condensed:         ", ListFnc(Log, nlist1).eval().condense())
+print("List of Pwr base b functions, condensed:  ", ListFnc(Pwr, nlist1, nlist2).eval().condense())
+print()
 

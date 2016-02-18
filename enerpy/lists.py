@@ -1,35 +1,86 @@
 """
-enerpy/funcs_list.py:
-This module contains all the functionality for dealing with lists of Nums.
-The native type is NumList, and lists and numbers are coerced to it.
+enerpy/lists.py
+This module contains everything needed for calculations on lists.
 """
 
-from enerpy.base import Fnc
-from enerpy.lists import NumList
-from enerpy.funcs import FUNCS_ONE_ARG, FUNCS_TWO_ARG, FUNCS_VAR_ARG
+from decimal import Decimal as D
+
+from enerpy import Node, Num, Fnc, enerfy
+from enerpy import FUNCS_ONE_ARG1, FUNCS_TWO_ARG, FUNCS_VAR_ARG
+from enerpy.extras import FUNCS_ONE_ARG2
+
+FUNCS_ONE_ARG = FUNCS_ONE_ARG1 + FUNCS_ONE_ARG2
 
 
-def listify(num, length):
+class NumList(Node, list):
     """
-    enerpy.listify:
+    enerpy.lists.NumList:
+    Data class containing a list of Nums.
+    It is initialised with a list() of numbers, e. g. [1, 2] or [Num(2, 1), 1].
+    """
+    def __init__(self, nlist=None):
+        super().__init__()
+        if nlist is None:
+            nlist = list()
+        for i in nlist:
+            self.append(enerfy(i))
+
+    def condense(self):
+        """
+        enerpy.lists.NumList.condense():
+        The .condense() method returns the mean and standard error of the list.
+        """
+        result = Num()
+        length = D(len(self))
+
+        list_sumn = D(0)
+        for i in self:
+            list_sumn += + enerfy(i).val
+
+        list_mean = list_sumn / length
+
+        list_var = D(0)
+        for i in self:
+            list_var = list_var + (list_mean - enerfy(i).val) ** 2
+
+        valu_var = D(0)
+        for i in self:
+            valu_var = valu_var + enerfy(i).var
+
+        mean_vars = (1 / (length * (length - 1))) * list_var
+        valu_vars = (1 / (length ** 2)) * valu_var
+
+        result.val = list_mean
+        result.var = mean_vars + valu_vars
+
+        return result
+
+    def eval(self):
+        return self.condense()
+
+    def __repr__(self):
+        string = str()
+        for i in range(0, len(self)):
+            string += (str(i) + ": " + str(self[i]) + "\n")
+        return string
+
+
+def listify(candidate, length):
+    """
+    enerpy.lists.listify:
     This is the coersion function by which non-NumList-arguments to functions
     expecting NumLists are converted to NumList object.
     """
     # Do not create lists of lists erroneously
-    if isinstance(num, list):
-        return num
+    if isinstance(candidate, list):
+        return candidate
 
-    tmp = list()
-    for i in range(0, length):
-        tmp.append(num)
-    nlist = NumList(tmp)
-
-    return nlist
+    return [candidate] * length
 
 
 class ListFnc(Fnc, list):
     """
-    enerpy.ListFnc:
+    enerpy.lists.ListFnc:
     This is the equivalent of a Fnc class for NumLists.
     It is initialised with a Fnc class, and, depending on how many arguments
     the function needs, one or two NumLists or Nums.
@@ -106,6 +157,12 @@ class ListFnc(Fnc, list):
         # Otherwise: Fnc does not seem to be supported, or fatal error
         else:
             raise TypeError("Either FATAL ERROR, or Fnc does not seem to be a supported function.")
+
+    def __repr__(self):
+        string = str()
+        for i in range(0, len(self)):
+            string += str(i) + ": " + repr(self[i]) + "\n"
+        return string
 
 
     def eval(self):
