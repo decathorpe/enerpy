@@ -24,6 +24,9 @@ class Sin(Fnc):
         super().__init__()
         self.arg1 = enerfy(a)
 
+    def __repr__(self):
+        return "sin(" + repr(self.arg1) + ")"
+
     def eval(self):
         a = self.arg1.eval()
         result = Num()
@@ -41,6 +44,9 @@ class Cos(Fnc):
         super().__init__()
         self.arg1 = enerfy(a)
 
+    def __repr__(self):
+        return "cos(" + repr(self.arg1) + ")"
+
     def eval(self):
         a = self.arg1.eval()
         result = Num()
@@ -57,6 +63,9 @@ class Tan(Fnc):
     def __init__(self, a):
         super().__init__()
         self.arg1 = enerfy(a)
+
+    def __repr__(self):
+        return "tan(" + repr(self.arg1) + ")"
 
     def eval(self):
         a = self.arg1.eval()
@@ -76,6 +85,9 @@ class ArcSin(Fnc):
         super().__init__()
         self.arg1 = enerfy(a)
 
+    def __repr__(self):
+        return "arcsin(" + repr(self.arg1) + ")"
+
     def eval(self):
         a = self.arg1.eval()
         result = Num()
@@ -93,6 +105,9 @@ class ArcCos(Fnc):
         super().__init__()
         self.arg1 = enerfy(a)
 
+    def __repr__(self):
+        return "arccos(" + repr(self.arg1) + ")"
+
     def eval(self):
         a = self.arg1.eval()
         result = Num()
@@ -109,6 +124,9 @@ class ArcTan(Fnc):
     def __init__(self, a):
         super().__init__()
         self.arg1 = enerfy(a)
+
+    def __repr__(self):
+        return "arctan(" + repr(self.arg1) + ")"
 
     def eval(self):
         a = self.arg1.eval()
@@ -128,6 +146,9 @@ class Sinh(Fnc):
         super().__init__()
         self.arg1 = enerfy(a)
 
+    def __repr__(self):
+        return "sinh(" + repr(self.arg1) + ")"
+
     def eval(self):
         a = self.arg1.eval()
         result = Num()
@@ -145,6 +166,9 @@ class Cosh(Fnc):
         super().__init__()
         self.arg1 = enerfy(a)
 
+    def __repr__(self):
+        return "cosh(" + repr(self.arg1) + ")"
+
     def eval(self):
         a = self.arg1.eval()
         result = Num()
@@ -161,6 +185,9 @@ class Tanh(Fnc):
     def __init__(self, a):
         super().__init__()
         self.arg1 = enerfy(a)
+
+    def __repr__(self):
+        return "tanh(" + repr(self.arg1) + ")"
 
     def eval(self):
         a = self.arg1.eval()
@@ -180,6 +207,9 @@ class ArcSinh(Fnc):
         super().__init__()
         self.arg1 = enerfy(a)
 
+    def __repr__(self):
+        return "arcsinh(" + repr(self.arg1) + ")"
+
     def eval(self):
         a = self.arg1.eval()
         result = Num()
@@ -196,6 +226,9 @@ class ArcCosh(Fnc):
     def __init__(self, a):
         super().__init__()
         self.arg1 = enerfy(a)
+
+    def __repr__(self):
+        return "arccosh(" + repr(self.arg1) + ")"
 
     def eval(self):
         a = self.arg1.eval()
@@ -215,6 +248,9 @@ class ArcTanh(Fnc):
     def __init__(self, a):
         super().__init__()
         self.arg1 = enerfy(a)
+
+    def __repr__(self):
+        return "arctanh(" + repr(self.arg1) + ")"
 
     def eval(self):
         a = self.arg1.eval()
