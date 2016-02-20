@@ -6,12 +6,15 @@ contains the functions that do not compute to arbitrary precision
 import math
 from decimal import Decimal as D
 
-from enerpy import Num, Fnc, enerfy
+from enerpy import Num, Fnc, enerfy, PREC, _PrecType
 
 FUNCTIONS2 = ["Sin", "Cos", "Tan", "ArcSin", "ArcCos", "ArcTan"]
 FUNCTIONS3 = ["Sinh", "Cosh", "Tanh", "ArcSinh", "ArcCosh", "ArcTanh"]
 
 __all__ = FUNCTIONS2 + FUNCTIONS3
+
+
+PREC.prec = _PrecType.MIN.value
 
 
 # Sin, Cos, Tan classes

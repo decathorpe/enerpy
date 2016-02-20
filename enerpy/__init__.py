@@ -16,13 +16,40 @@ FUNCTIONS1 = ["Add", "Sub", "Mul", "Div", "Pwr", "Root", "Exp", "Log"]
 # Trigonometric functions (not available with arbitrary precision) have to be
 #   included seperately.
 
-__all__ = ["Num"] + FUNCTIONS1
+__all__ = ["Num", "PREC"] + FUNCTIONS1
 
 
 # Default precision for the enerpy module is 50 but can be overridden after import
 
-getcontext().prec = 50
+DEFAULT_PREC = 50
+EXTRAS_PREC = 14
 
+getcontext().prec = DEFAULT_PREC
+
+
+class _PrecType(Enum):
+    """
+    enerpy._PrecType:
+    Private! Enum holding different Types of precision:
+    - MAX: module decimal is used exclusively
+    - MIN: module math is used as fallback for trig functions
+    """
+    MAX = DEFAULT_PREC - 10
+    MIN = EXTRAS_PREC
+
+
+class _Prec:
+    """
+    enerpy._Prec:
+    Private! Class holding current precision value for equality tests etc.
+    Will be reduced to EXTRAS_PREC if enerpy.extras is imported.
+    """
+    def __init__(self, prectype=_PrecType.MAX):
+        assert isinstance(prectype, _PrecType)
+        self.prec = prectype.value
+
+
+PREC = _Prec()
 DECIMAL_E = D(1).exp()
 
 
@@ -169,15 +196,15 @@ class Num(Node):
 
     def __eq__(self, other):
         other = enerfy(other)
-        if round(self.eval().val, 14) == round(other.eval().val, 14) and \
-           round(self.eval().var, 14) == round(other.eval().var, 14):
+        if round(self.eval().val, PREC.prec) == round(other.eval().val, PREC.prec) and \
+           round(self.eval().var, PREC.prec) == round(other.eval().var, PREC.prec):
             return True
         else:
             return False
 
     def __ne__(self, other):
         other = enerfy(other)
-        if round(self.eval().val, 14) != round(other.eval().val, 14):
+        if round(self.eval().val, PREC.prec) != round(other.eval().val, PREC.prec):
             return True
         else:
             return False
@@ -296,7 +323,7 @@ class Mul(Fnc):
         self.arg2 = enerfy(b)
 
     def __repr__(self):
-        return repr(self.arg1) + " - (" + repr(self.arg2) + ")"
+        return repr(self.arg1) + " * " + repr(self.arg2)
 
     def eval(self):
         a = self.arg1.eval()

@@ -25,3 +25,6 @@ print(C)
 print("one-shot: C")
 print(Exp(Div(deltaH, Mul(Rgas, Temp))).eval())
 
+print("one-shot with infix operators: C")
+print(Exp(deltaH / (Rgas * Temp)).eval())
+
