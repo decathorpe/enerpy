@@ -3,7 +3,7 @@
 %endif
 
 Name: enerpy
-Version: 0.3.1
+Version: 0.3.2
 Release: 1%{?dist}
 
 Summary: gaussian error propagation python3 module
@@ -58,6 +58,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Feb 20 2016 Fabio Valentini <decathorpe@gmail.com> - 0.3.2-1
+- Bump version to 0.3.2.
+
 * Thu Feb 18 2016 Fabio Valentini <decathorpe@gmail.com> - 0.3.1-1
 - Bump to version 0.3.1.
 
