@@ -4,7 +4,6 @@ gaussian error propagation with arbitrary precision, using the decimal module
 """
 
 from enum import Enum
-import math
 
 from decimal import Decimal as D
 from decimal import getcontext
@@ -412,14 +411,13 @@ class LogType(Enum):
     DEC = 2
 
 
-# generic logarithm: argument a, base b (default: math.e)
+# generic logarithm: argument a, base b (default: D(1).exp())
 class Log(Fnc):
     """
     enerpy.Log:
     Function class to get the logarithm of a Num, base Num.
     Default is base Euler's Number "e", other bases can be specified by the
         optional second argument.
-    WARNING: Calculations on bases other than Euler's Number and 10 are inaccurate.
     """
     def __init__(self, a, b=DECIMAL_E):
         super().__init__()
@@ -466,13 +464,9 @@ class Log(Fnc):
             return result
 
         elif self.type == LogType.NOR:
-            print("WARNING: The value and standard deviation of this generic logarithm")
-            print("         are not as precise as all other values.")
-            print("         Consider changing your equation to accomodate this limitation.")
-            result.val = D(math.log(a.val, b.val))
-            result.var = (result.val ** 2) * \
-                    ((a.var) / ((a.val ** 2) * ((a.val.ln()) ** 2)) + \
-                     (b.var) / ((b.val ** 2) * ((b.val.ln()) ** 2)))
+            result.val = a.val.ln() / b.val.ln()
+            result.var = (result.val ** 2) * ((1 / (a.val.ln() ** 2)) * (a.var / (a.val ** 2)) + \
+                                              (1 / (b.val.ln() ** 2)) * (b.var / (b.val ** 2)))
             return result
 
         else:
